@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Top</ion-title>
+    <ion-buttons>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!--aa-->
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of top">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="item.picture"></ion-img>
+      </ion-thumbnail>
+      {{item.name}} <ion-item slot="end"><ion-icon name="star" size="default" color="warning"></ion-icon>
+      <h5 style="display: inline">{{item.score  | number:'1.1-2'}}</h5></ion-item>
+    </ion-item>
+  </ion-list>
+</ion-content>

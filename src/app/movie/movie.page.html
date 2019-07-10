@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="primary">
+      <ion-button><ion-icon name="add-circle"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>io
+  <ion-segment color="success">
+    <ion-segment-button checked  (ionSelect)="change(true)">
+      <ion-label>Movie</ion-label>
+    </ion-segment-button>
+    <ion-segment-button (ionSelect)="change(false)" >
+      <ion-label>Trailer</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div *ngIf="SelectMovie else trailer">
+    <video [src]="currentMovie.movie" controls type="video/mp4" width="100%" height="100%" style="margin: 0">
+    </video>
+  </div>
+  <ng-template #trailer>
+    <div>
+      <video [src]="currentMovie.trailer" controls type="video/mp4" width="100%" height="100%" style="margin: 0">
+      </video>
+    </div>
+  </ng-template>
+
+  <ion-segment color="success">
+    <ion-segment-button  [routerLink]="'/movie/' + currentID + '/about-movie'">
+      <ion-label>About Movie</ion-label>
+      <ion-icon name="information-circle-outline"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button [routerLink]="'/movie/' + currentID + '/soundTracks'">
+      <ion-label>SoundTracks</ion-label>
+      <ion-icon name="musical-notes"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button [routerLink]="'/movie/' + currentID + '/screens'">
+      <ion-label>ScreenShots</ion-label>
+      <ion-icon name="images"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button [routerLink]="'/movie/' + currentID + '/starring'">
+      <ion-label>Starring</ion-label>
+      <ion-icon name="people"></ion-icon>
+    </ion-segment-button>
+    <ion-segment-button [routerLink]="'/movie/' + currentID + '/comments'">
+      <ion-label>Comments</ion-label>
+      <ion-icon name="text"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+  <router-outlet></router-outlet>
+</ion-content>
+
