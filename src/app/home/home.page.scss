@@ -1,0 +1,106 @@
+.welcome-card ion-img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+.film__label {
+  color: whitesmoke;
+  text-decoration: none;
+  font-family: cursive;
+}
+
+
+.f__img {
+  width: 100%;
+  border: 1px solid black;
+  box-shadow: 12px 0 15px -4px rgba(0,0,0,0.8), -12px 0 8px -4px rgba(0,0,0,0.8);
+}
+
+.about {
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  height: 230px;
+  position: relative;
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(-198deg, rgba(37, 40, 37, 0.1) 0%, rgba(37, 40, 36, 1) 100%);
+}
+
+.search {
+  margin: 15px 5px 4px 5px;
+}
+
+.search input {
+
+  border: none;
+}
+
+.header {
+  width: 100%;
+  margin-top: 0;
+
+}
+
+.search .input {
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  padding: 8px 37px 9px 15px;
+
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: #EEE;
+  font: 13px Tahoma, Arial, sans-serif;
+  color: #555;
+  outline: none;
+}
+
+.search > .submit {
+  outline: none;
+  position: absolute;
+  right: 2%;
+  width: 50px;
+  height: 5%;
+  cursor: pointer;
+  background: url(https://lh4.googleusercontent.com/-b-5aBxcxarY/UAfFW9lVyjI/AAAAAAAABUg/gQtEXuPuIds/s13/go.png) 50% no-repeat;
+  opacity: 0.5;
+}
+
+.sorted {
+  padding: 0;
+  text-align: center;
+}
+
+.sorted > ion-button {
+  width: 50px;
+  height: 30px;
+}
+
+@media (min-width: 280px) {
+  .sorted>ion-button{
+    width: 58px;
+    height: 40px;
+  }
+}
+
+@media(min-width: 500px) {
+  .search > .submit {
+    height: 10%;
+  }
+  .sorted > ion-button {
+    width: 80px;
+    height: 50px;
+  }
+}
+
+@media (min-width: 850px) {
+  .search > .submit {
+    height: 4%;
+  }
+}

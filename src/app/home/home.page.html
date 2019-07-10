@@ -1,0 +1,74 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button style="color: seagreen"></ion-menu-button>
+        </ion-buttons>
+        <ion-title style="font-family: fantasy; font-size: 24px; color: seagreen;">
+            Main page
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="sorted" style="margin-top: 50px">
+        <ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Fantasy')"><span style="font-size: 11px">Fantasy</span></ion-button>
+        <ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Horror')"><span style="font-size: 11px">Horror</span></ion-button>
+        <ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Drama')"><span style="font-size: 11px">Drama</span></ion-button>
+        <ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Historical')"><span style="font-size: 11px">Historical</span></ion-button>
+        <ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Comedy')"><span style="font-size: 11px">Comedy</span></ion-button>
+    </div>
+    <div class="sorted">
+        <ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Adventure')"><span style="font-size: 11px">Adventure</span></ion-button>
+        <ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Biography')"><span style="font-size: 11px">Biography</span></ion-button>
+        <ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Sport')"><span style="font-size: 11px">Sport</span></ion-button>
+        <ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Cartoons')"><span style="font-size: 11px">Cartoons</span></ion-button>
+        <ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Serials')"><span style="font-size: 11px">Serials</span></ion-button>
+    </div>
+    <form #form="ngForm" method="get" class="search col-lg-5" id="search">
+        <input type="search" ngModel name="search" placeholder="Search"
+               class="input"/>
+        <input (click)="sendSearchForm(form)" type="submit" value="" class="submit"/>
+    </form>
+    <div style="background: rgba(37, 40, 37, 1); box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+        <div *ngFor="let f of filmsAfterSlice" class="container" style="border-bottom: 1px solid #404040; ">
+            <div style="padding: 0; margin: 20px 10px 0 10px; text-align: center">
+                <a class="film__label" [routerLink]="'/film/' + f.id"><h3 style="margin-top: 15px">{{f.name}}</h3>
+                </a>
+                <a class="films__rec2" [routerLink]="'/film/' + f.id"><img class="f__img"
+                                                                           alt="" [src]="f.picture"></a>
+            </div>
+            <div class=" film__cont"><p class="about">
+              <span style="display: block; float: right; margin-right: 10px">
+              <img width="50px" height="50px" src="/assets/star2.png" alt="">
+              <span style="color: goldenrod; font-size: 20px">{{f.score | number:'1.1-2'}}</span>
+            </span>
+                <span style="font-weight: 900">Year: </span><span
+                    style="color: #e80500; font-size: 18px; font-family: cursive">{{f.year}}</span><br>
+                <span style="font-weight: 900">Country: </span><span
+                    style="color: #e80500; font-size: 18px; font-family: cursive">{{f.country}}</span> <br>
+                <span style="font-weight: 900">Quality: </span><span
+                    style="color: #e80500; font-size: 18px; font-family: cursive">{{f.quality}}</span> <br>
+                <span style="font-weight: 900;">About: </span><span
+                    style="color: rgba(107,107,107,0.87)">{{f.aboutFilm}}</span><br>
+            </p></div>
+            <div style="text-align: center; margin: 20px 0 10px;">
+                <ion-button [routerLink]="'/film/' + f.id" style="width: 100px; color: white"
+                            color="primary">Watch
+                </ion-button>
+                <ion-button (click)="ShowTrailer(f.id)" style="width: 100px; color: white" color="primary">
+                    Trailer
+                </ion-button>
+                <ion-button (click)="addUserFilm(f.id)" style="width: 100px; color: white" color="success">ADD
+                </ion-button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <ion-button (click)="previousPage()" style="float: left" color="dark" shape="round" fill="outline">
+            <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+        <ion-button (click)="nextPage(true)" style="float: right" color="dark" shape="round" fill="outline">
+            <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>
+    </div>
+</ion-content>
