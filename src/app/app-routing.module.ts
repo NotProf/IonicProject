@@ -10,7 +10,10 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: './home/home.module#HomePageModule'
-  }
+  },
+  { path: 'top', loadChildren: './top/top.module#TopPageModule' },
+  { path: 'movie/:id', loadChildren: './movie/movie.module#MoviePageModule' }
+
 ];
 
 @NgModule({

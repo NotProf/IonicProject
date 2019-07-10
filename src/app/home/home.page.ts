@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 import {FilmServiceService} from '../../services/film-service.service';
 import {Films} from '../../models/Films';
-import {NavController} from '@ionic/angular';
+import {NavController, PopoverController} from '@ionic/angular';
 import {NgForm} from '@angular/forms';
+import {GenreComponent} from '../genre/genre.component';
 
 @Component({
     selector: 'app-home',
@@ -11,38 +12,43 @@ import {NgForm} from '@angular/forms';
 })
 export class HomePage {
 
-    constructor(private filmsS: FilmServiceService, private nav: NavController) {
+    constructor(private filmsS: FilmServiceService,
+                private nav: NavController,
+                private popoverController: PopoverController) {
     }
 
     films: Films [] = [];
     filmsAfterSlice: Films [] = [];
-    maxSize = 10;
-    fullSize = 0;
+    maxSize = 2;
+    moreButton;
 
 
     ionViewWillEnter() {
         this.filmsS.getFilms().subscribe((res) => {
             this.films = res.reverse();
-            this.nextPage(false);
+            this.filmsAfterSlice = this.films.slice(0, this.maxSize);
+            this.checkButton();
         });
     }
 
-    nextPage(click: boolean) {
-        this.fullSize = this.films.length;
-        if (click === false) {
-            this.filmsAfterSlice = this.films.slice(0, this.maxSize);
+    async present(event) {
+        const popover  = await this.popoverController.create({
+            component: GenreComponent,
+            event
+        });
+        await popover.present();
+    }
+    checkButton() {
+        if (this.films.length >= this.maxSize) {
+            this.moreButton = true;
         } else {
-            const first = 2;
-            const last = 4;
-            this.filmsAfterSlice = this.films.slice(first, last);
+            this.moreButton = false;
         }
     }
-
-
-    previousPage() {
-        const first = 0;
-        const last = 2;
-        this.filmsAfterSlice = this.films.slice(first, last);
+    showMore() {
+        this.maxSize += 2;
+        this.filmsAfterSlice = this.films.slice(0, this.maxSize);
+        this.checkButton();
     }
 
     SearchBy(genre: string) {
