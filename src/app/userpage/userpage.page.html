@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button style="color: seagreen"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>My Page</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="userImg">
+        <ion-label><h3>Name Surname</h3></ion-label>
+        <img src="assets/ava.jpg">
+        <ion-label><h6>Status</h6></ion-label>
+        <label class="avatar_input"><input class="avatar" type="file" ngModel name="avatar"
+                                           placeholder="Image" (change)="handleFileInput($event)">
+            <ion-icon name="camera"></ion-icon>
+        </label>
+    </div>
+    <div class="aboutUser">
+        <h3>Email: </h3>
+        <a routerLink="userfilms"><h3>Films in library: </h3></a>
+        <a routerLink="followers"><h3>Followers: </h3></a>
+        <h3>Following: </h3>
+    </div>
+
+
+    <router-outlet></router-outlet>
+
+
+</ion-content>
