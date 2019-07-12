@@ -11,7 +11,7 @@ import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
     styleUrls: ['./userpage.page.scss'],
 })
 export class UserpagePage implements OnInit {
-
+//a
     constructor(public fileChooser: FileChooser, public file: File, public platform: Platform, public camera: Camera) {
     }
 
