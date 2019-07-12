@@ -34,4 +34,4 @@ import {File} from '@ionic-native/file/ngx';
 })
 export class AppModule {
 }
-// asd
+
