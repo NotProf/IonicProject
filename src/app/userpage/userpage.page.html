@@ -1,28 +1,29 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-menu-button style="color: seagreen"></ion-menu-button>
+            <ion-menu-button style="color: black"></ion-menu-button>
         </ion-buttons>
         <ion-title>My Page</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="click()" color="light"><ion-icon style="color: black" name="log-out"></ion-icon></ion-button>
+        </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    <ion-item>
     <div class="userImg">
-        <ion-label><h3>Name Surname</h3></ion-label>
-        <img src="assets/ava.jpg">
+        <ion-label ><h1 style="margin-top: 4%; font-family: fantasy">Name Surname</h1></ion-label>
+        <div style="margin-top: 4%"><img class="ava" id="ava" [src]="image"></div>
         <ion-label><h6>Status</h6></ion-label>
-        <label class="avatar_input"><input class="avatar" type="file" ngModel name="avatar"
-                                           placeholder="Image" (change)="handleFileInput($event)">
-            <ion-icon name="camera"></ion-icon>
-        </label>
+        <ion-button color="light" (click)="selectFile()"><ion-icon name="camera"></ion-icon></ion-button>
     </div>
+    </ion-item>
     <div class="aboutUser">
-        <h3>Email: </h3>
-        <a routerLink="userfilms"><h3>Films in library: </h3></a>
-        <a routerLink="followers"><h3>Followers: </h3></a>
-        <h3>Following: </h3>
+        <h3 class="aboutH">Email: <span style="font-size: 16px; opacity: 0.7">45ytrasure@gmail.com</span></h3>
+        <h3 class="aboutH">Films in library: <a routerLink="userfilms">3</a></h3>
+        <h3 class="aboutH">Followers: <a routerLink="followers">5</a></h3>
+        <h3 class="aboutH">Following: <a routerLink="following">10</a></h3>
     </div>
 
 

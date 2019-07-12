@@ -1,15 +1,51 @@
-.userImg{
-  text-align: center;
+ion-content{
+  --ion-background-color: seagreen;
 }
 
-.aboutUser{
-  border: 1px solid black;
+.userImg {
+  margin: 0 auto 5% !important;
+  text-align: center !important;
+}
+
+
+.aboutUser {
+  background: white;
+  width: 95%;
+  margin: 10% auto 0;
+  box-shadow:0 0 10px rgba(0,0,0,0.5);
 }
 
 .avatar {
-  display: none;
+  position: absolute;
+  top: 46%;
+  width: 8%;
+  left: 46%;
+  border: 1px solid black;
+  z-index: 999;
 }
 
-.avatar_input{
+.avatar_input {
   font-size: 30px;
+}
+
+
+.ava {
+  width: 55%;
+  height: 55%;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
+
+.aboutH{
+  margin-left: 2%;
+  font-family: fantasy;
+  color: black;
+}
+
+.aboutH>a{
+  color: seagreen;
+  text-decoration: underline;
+  font-size: 20px;
+  font-weight: 600;
 }

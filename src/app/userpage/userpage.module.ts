@@ -8,6 +8,8 @@ import { IonicModule } from '@ionic/angular';
 import { UserpagePage } from './userpage.page';
 import {UserfilmsComponent} from '../userfilms/userfilms.component';
 import {FollowersComponent} from '../followers/followers.component';
+import {FollowingComponent} from '../following/following.component';
+
 
 const routes: Routes = [
   {
@@ -15,6 +17,7 @@ const routes: Routes = [
     component: UserpagePage, children: [
       {path: 'userfilms', component: UserfilmsComponent},
       {path: 'followers', component: FollowersComponent},
+      {path: 'following', component: FollowingComponent}
     ]
   }
 ];
@@ -26,6 +29,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [UserpagePage, UserfilmsComponent, FollowersComponent]
+  declarations: [UserpagePage, UserfilmsComponent, FollowersComponent, FollowingComponent],
 })
 export class UserpagePageModule {}

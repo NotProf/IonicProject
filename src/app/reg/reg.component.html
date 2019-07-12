@@ -1,0 +1,7 @@
+<form style="margin-top: 5%" [formGroup]="authForm" (ngSubmit)="reg(authForm)">
+<ion-item> <ion-input formControlName="username" required placeholder="nickname"></ion-input></ion-item>
+<ion-item> <ion-input formControlName="email" required placeholder="email"></ion-input></ion-item>
+<ion-item> <ion-input formControlName="password" required placeholder="password" type="password"></ion-input></ion-item>
+<ion-button type="submit" [disabled]="!authForm.valid" expand="full" >Registration</ion-button>
+    <ion-item><p style="color: coral">{{mes}}</p></ion-item>
+</form>
