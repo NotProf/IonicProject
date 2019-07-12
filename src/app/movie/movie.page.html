@@ -10,7 +10,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>io
+<ion-content>
   <ion-segment color="success">
     <ion-segment-button checked  (ionSelect)="change(true)">
       <ion-label>Movie</ion-label>
@@ -53,5 +53,15 @@
     </ion-segment-button>
   </ion-segment>
   <router-outlet></router-outlet>
+  <div class="main-list">
+    <div class="list-item" *ngFor="let item of top">
+      <img class="list-img" [src]="item.picture" width="40%" height="100%">
+      <div class="block">{{item.name}}
+      <div><ion-icon name="star" color="warning" size="large"></ion-icon>
+        <span style="color: gold">{{item.score | number:"1.1-2"}}</span></div>
+      </div>
+    </div>
+  </div>
+
 </ion-content>
 
