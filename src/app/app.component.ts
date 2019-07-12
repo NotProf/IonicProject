@@ -19,6 +19,11 @@ export class AppComponent {
       title: 'Top',
       url: '/top',
       icon: 'star'
+    },
+    {
+      title: 'My Page',
+      url: '/userpage',
+      icon: 'contact'
     }
   ];
 

@@ -9,6 +9,9 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {FileChooser} from '@ionic-native/file-chooser/ngx';
+import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
+import {File} from '@ionic-native/file/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -22,9 +25,13 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     providers: [
         StatusBar,
         SplashScreen,
+        FileChooser,
+        Camera,
+        File,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
 }
+// asd
