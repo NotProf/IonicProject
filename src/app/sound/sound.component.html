@@ -1,3 +1,7 @@
-<p>
-  sound works!
-</p>
+<div class="sound">
+ <div *ngFor="let audio of currentMovie.audio">
+   <h5>{{audio.slice(32)}}</h5>
+   <audio controls [src]="audio"></audio>
+ </div>
+
+</div>

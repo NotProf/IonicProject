@@ -11,6 +11,7 @@ import {Films} from '../../models/Films';
 export class MoviePage implements OnInit {
   currentID;
   currentMovie: Films = new Films();
+  top: Films[];
   title = 'Movie';
   SelectMovie = true;
   constructor(private activateRoute: ActivatedRoute,
@@ -23,6 +24,9 @@ export class MoviePage implements OnInit {
     this.filmService.getFilmById(this.currentID).subscribe((res) => {
       this.currentMovie = res;
       this.title = this.currentMovie.name;
+    });
+    this.filmService.getTopTen().subscribe((res) => {
+      this.top = res;
     });
   }
 

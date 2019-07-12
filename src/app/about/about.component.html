@@ -1,3 +1,23 @@
-<p>
-  about works!
-</p>
+<div >
+  <div class="about">
+    <ion-img class="filmImg" [src]="currentMovie.picture"></ion-img>
+    <div class="filmInf">
+      <h2 class="filmName">{{currentMovie.name}}</h2>
+      <small>Rate the movie</small>
+      <ion-buttons>
+        <ion-button *ngFor="let n of [1,2,3,4,5]" >
+          <ion-icon name="star" color="warning"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <h3 class="score">{{currentMovie.score | number: "1.1-2"}}/5</h3>
+    </div>
+  </div>
+
+  <ion-list lines="none">
+    <ion-item>Year:{{currentMovie.year}}</ion-item>
+    <ion-item>Quality:{{currentMovie.quality}}</ion-item>
+    <ion-item>Genre:{{currentMovie.genre}}</ion-item>
+    <ion-item>Counrty:{{currentMovie.country}}</ion-item>
+    <ion-item>{{currentMovie.aboutFilm}}</ion-item>
+  </ion-list>
+</div>
