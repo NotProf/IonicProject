@@ -12,7 +12,8 @@ const routes: Routes = [
     loadChildren: './home/home.module#HomePageModule'
   },
   { path: 'top', loadChildren: './top/top.module#TopPageModule' },
-  { path: 'movie/:id', loadChildren: './movie/movie.module#MoviePageModule' }
+  { path: 'movie/:id', loadChildren: './movie/movie.module#MoviePageModule' },
+  {path: 'userpage', loadChildren: './userpage/userpage.module#UserpagePageModule'}
 
 ];
 
