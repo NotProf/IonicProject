@@ -9,7 +9,7 @@ import {Films} from '../../models/Films';
   styleUrls: ['./movie.page.scss'],
 })
 export class MoviePage implements OnInit {
-  currentID;
+  currentID = 0;
   currentMovie: Films = new Films();
   top: Films[];
   title = 'Movie';

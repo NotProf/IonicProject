@@ -9,6 +9,8 @@ export class LogregPage implements OnInit {
 
   constructor() { }
 
+
+
   ngOnInit() {
   }
 

@@ -23,9 +23,9 @@ export class RegComponent implements OnInit {
 
     ngOnInit() {
         this.authForm = this.formBuilder.group({
-            username: ['', [Validators.required, Validators.minLength(6)]],
+            username: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
             email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
         }, {});
     }
 
@@ -40,7 +40,7 @@ export class RegComponent implements OnInit {
                 if (!this.userexists) {
                     this.mes = 'Username already exist';
                 } else {
-                    this.mes = 'Thanks for registering!';
+                    this.mes = 'Thanks for registering! You can login now';
                     this.submitted = true;
                     if (this.authForm.invalid) {
                         return;

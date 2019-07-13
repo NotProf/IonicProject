@@ -8,7 +8,21 @@
 
 .film{
   background: white;
-  height: 100px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  height: 100%;
   border: 1px solid seagreen;
+}
+
+.film>a{
+  color: seagreen;
+  text-decoration: none;
+}
+
+.film__image {
+  width: 100%;
+  height: 200px;
+  box-shadow: 12px 0 15px -4px rgba(0,0,0,0.8), -12px 0 8px -4px rgba(0,0,0,0.8);
+}
+
+ion-button{
+  margin: 0 auto;
 }
