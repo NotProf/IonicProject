@@ -15,6 +15,7 @@ export class SoundComponent implements OnInit {
   ngOnInit() {
     this.filmService.getFilmById(this.moviePage.currentID).subscribe((res) => {
       this.currentMovie = res;
+      console.log(res);
     });
   }
 

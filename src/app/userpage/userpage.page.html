@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title>My Page</ion-title>
         <ion-buttons slot="end">
-            <ion-button (click)="click()" color="light"><ion-icon style="color: black" name="log-out"></ion-icon></ion-button>
+            <ion-button (click)="logout()" color="light"><ion-icon style="color: black" name="log-out"></ion-icon></ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -13,7 +13,7 @@
 <ion-content>
     <ion-item>
     <div class="userImg">
-        <ion-label ><h1 style="margin-top: 4%; font-family: fantasy">Name Surname</h1></ion-label>
+        <ion-label ><h1 style="margin-top: 4%; font-family: fantasy">{{currentUser.username}}</h1></ion-label>
         <div style="margin-top: 4%"><img class="ava" id="ava" [src]="image"></div>
         <ion-label><h6>Status</h6></ion-label>
         <ion-button color="light" (click)="selectFile()"><ion-icon name="camera"></ion-icon></ion-button>

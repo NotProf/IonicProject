@@ -11,7 +11,6 @@ import {ScreensComponent} from '../screens/screens.component';
 import {SoundComponent} from '../sound/sound.component';
 import {CommentsComponent} from '../comments/comments.component';
 import {StarringComponent} from '../starring/starring.component';
-import {IonicRatingModule} from "ionic4-rating/dist";
 
 
 const routes: Routes = [
@@ -46,7 +45,6 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-      IonicRatingModule,
     RouterModule.forChild(routes)
   ],
   declarations: [MoviePage,

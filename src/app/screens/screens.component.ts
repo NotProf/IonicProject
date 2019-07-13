@@ -15,6 +15,7 @@ currentMovie: Films = new Films();
   ngOnInit() {
     this.filmService.getFilmById(this.moviePage.currentID).subscribe((res) => {
       this.currentMovie = res;
+      console.log(this.currentMovie.screenShots);
     });
   }
 

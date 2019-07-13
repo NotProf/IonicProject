@@ -105,7 +105,7 @@ export class UserServiceService {
     }
 
     close(id: number) {
-        return this.http.post('http://localhost:8080/close', id);
+        return this.http.post(this.url + 'close', id);
     }
 
 }

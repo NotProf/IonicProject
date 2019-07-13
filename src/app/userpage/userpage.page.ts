@@ -4,6 +4,10 @@ import {FileChooser} from '@ionic-native/file-chooser/ngx';
 import {Platform} from '@ionic/angular';
 import {File} from '@ionic-native/file/ngx';
 import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserServiceService} from '../../services/user-service.service';
+import {log} from 'util';
+import {AppComponent} from '../app.component';
 
 @Component({
     selector: 'app-userpage',
@@ -12,33 +16,28 @@ import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
 })
 export class UserpagePage implements OnInit {
 
-    constructor(public fileChooser: FileChooser, public file: File, public platform: Platform, public camera: Camera) {
+    constructor(public fileChooser: FileChooser,
+                public file: File,
+                public platform: Platform,
+                public camera: Camera,
+                public router: Router,
+                public userService: UserServiceService,
+                public activatedRoute: ActivatedRoute,
+                public app: AppComponent) {
     }
 
-    user = new User();
+    currentUser = new User();
+    currentID = 0;
     image = 'assets/ava.jpg';
 
     ngOnInit() {
+        this.userService.getCurrentUser().subscribe((res) => {
+            this.currentUser = res;
+            this.currentID = res.id;
+        });
     }
 
     selectFile() {
-        // this.fileChooser.open().then((fileuri) => {
-        // this.file.resolveLocalFilesystemUrl(fileuri).then((newUrl) => {
-        //     this.image = JSON.stringify(newUrl);
-        //     const fileReader = new FileReader();
-        //     fileReader.(JSON.stringify(newUrl));
-        //     fileReader.onload = () => {
-        //         // @ts-ignore
-        //         this.user.avatar = fileReader.result;
-        // const dirPath = newUrl.nativeURL;
-        // const dirPathSegment = dirPath.split('/');
-        // dirPathSegment.pop();
-        // dirPathSegment.join('/');
-        // this.file.readAsArrayBuffer(dirPath, newUrl.name).then((buffer) => {
-        //     this.image = buffer;
-        // });
-        // });
-        // });
         if (this.platform.is('cordova')) {
             const options: CameraOptions = {
                 quality: 100,
@@ -55,8 +54,10 @@ export class UserpagePage implements OnInit {
         }
     }
 
-    click() {
-        location.href = '/logreg/log';
+    logout() {
+        localStorage.removeItem('_token');
+        localStorage.removeItem('_currentUser');
+        this.router.navigateByUrl('/logreg/log');
     }
 }
 
