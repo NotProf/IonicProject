@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class UserServiceService {
 
-    url = 'http://http://localhost:8080/';
+    url = 'http://localhost:8080/';
 
     constructor(private http: HttpClient, private router: Router) {
     }

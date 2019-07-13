@@ -57,6 +57,7 @@ export class UserpagePage implements OnInit {
     logout() {
         localStorage.removeItem('_token');
         localStorage.removeItem('_currentUser');
+        this.currentUser.status = 'offline';
         this.router.navigateByUrl('/logreg/log');
     }
 }

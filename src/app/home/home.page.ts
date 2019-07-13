@@ -14,6 +14,7 @@ import {UserServiceService} from '../../services/user-service.service';
 })
 export class HomePage {
 
+
     constructor(private filmsS: FilmServiceService,
                 private nav: NavController,
                 private popoverController: PopoverController,
@@ -26,13 +27,12 @@ export class HomePage {
     moreButton;
     currentUser = new User();
     currentID;
+    userfilmItar = false;
 
     ionViewWillEnter() {
         this.userService.getCurrentUser().subscribe((res) => {
             this.currentUser = res;
             this.currentID = res.id;
-            console.log(this.currentUser);
-            console.log(this.currentID);
         });
         this.filmsS.getFilms().subscribe((res) => {
             this.films = res.reverse();
@@ -42,12 +42,13 @@ export class HomePage {
     }
 
     async present(event) {
-        const popover  = await this.popoverController.create({
+        const popover = await this.popoverController.create({
             component: GenreComponent,
             event
         });
         await popover.present();
     }
+
     checkButton() {
         if (this.films.length >= this.maxSize) {
             this.moreButton = true;
@@ -55,6 +56,7 @@ export class HomePage {
             this.moreButton = false;
         }
     }
+// dcsc
     showMore() {
         this.maxSize += 2;
         this.filmsAfterSlice = this.films.slice(0, this.maxSize);
@@ -67,6 +69,7 @@ export class HomePage {
             this.filmsAfterSlice = this.films.slice(0, this.maxSize);
         });
     }
+
     sendSearchForm(form: NgForm) {
         if (form.value.search !== '') {
             this.filmsS.findSearchingFilm(form.value.search).subscribe(res => {
@@ -78,6 +81,24 @@ export class HomePage {
                 this.films = res.reverse();
                 this.filmsAfterSlice = this.films.slice(0, this.maxSize);
             });
+        }
+    }
+
+    addUserFilm(idFilm: number) {
+        this.userfilmItar = false;
+        for (let i = 0; i < this.currentUser.usersFilms.length; i++) {
+            if (this.currentUser.usersFilms[i].id === idFilm) {
+                this.userfilmItar = true;
+            }
+        }
+        if (this.userfilmItar === false) {
+            this.userService.addUserFilm(idFilm).subscribe((res) => {
+                this.currentUser.usersFilms = res;
+                alert('Added');
+            });
+        } else {
+            this.userfilmItar = false;
+            alert('Exists');
         }
     }
 

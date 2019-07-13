@@ -1,5 +1,9 @@
 ion-content{
-  --ion-background-color: seagreen;
+  --ion-background-color: rgba(31,0,41,0.2);
+}
+
+ion-item{
+  --ion-background-color: rgba(37, 40, 37, 1);
 }
 
 .userImg {
@@ -33,7 +37,7 @@ ion-content{
   width: 55%;
   height: 55%;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 30px seagreen;
 
 }
 
