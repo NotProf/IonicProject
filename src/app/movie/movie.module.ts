@@ -8,10 +8,10 @@ import { IonicModule } from '@ionic/angular';
 import { MoviePage } from './movie.page';
 import {AboutComponent} from '../about/about.component';
 import {ScreensComponent} from '../screens/screens.component';
-import {SoundComponent} from "../sound/sound.component";
-import {CommentsComponent} from "../comments/comments.component";
-import {path} from "@angular-devkit/core";
-import {StarringComponent} from "../starring/starring.component";
+import {SoundComponent} from '../sound/sound.component';
+import {CommentsComponent} from '../comments/comments.component';
+import {StarringComponent} from '../starring/starring.component';
+
 
 const routes: Routes = [
   {

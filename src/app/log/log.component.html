@@ -1,6 +1,6 @@
 <form style="margin-top: 5%" [formGroup]="authForm" (ngSubmit)="login(authForm)">
     <ion-item> <ion-input formControlName="username" required placeholder="username"></ion-input></ion-item>
-    <ion-item> <ion-input formControlName="password"  required placeholder="password"></ion-input></ion-item>
+    <ion-item> <ion-input formControlName="password" required placeholder="password"></ion-input></ion-item>
     <ion-button type="submit" expand="full">Login</ion-button>
     <ion-item><p style="color: coral">{{mes}}</p></ion-item>
 </form>

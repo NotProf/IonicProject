@@ -19,26 +19,24 @@ export class LogComponent implements OnInit {
 
     ngOnInit() {
         this.authForm = this.formBuilder.group({
-            username: ['', [Validators.required, Validators.minLength(6)]],
-            password: ['', [Validators.required, Validators.minLength(6)]]
+            username: ['', [Validators.required, Validators.minLength(4)]],
+            password: ['', [Validators.required, Validators.minLength(4)]]
         }, {});
     }
 
     login(authForm: FormGroup) {
-
-        //     this.userS.Login(authForm.value).subscribe(value => {
-        //         if (this.authForm.invalid) {
-        //             return;
-        //         }
-        //         const token = value.headers.get('Authorization');
-        //         const currentUser = value.headers.get('CurrentUser');
-        //         localStorage.setItem('_currentUser', currentUser);
-        //         localStorage.setItem('_token', token);
-        //         this.submitted = true;
+            this.userS.Login(authForm.value).subscribe(value => {
+                if (this.authForm.invalid) {
+                    return;
+                }
+                const token = value.headers.get('Authorization');
+                const currentUser = value.headers.get('CurrentUser');
+                localStorage.setItem('_currentUser', currentUser);
+                localStorage.setItem('_token', token);
+                this.submitted = true;
                 this.router.navigateByUrl('/home');
-        //     }, () => {
-        //         this.mes = 'Неправильно вказані дані або не активований акаунт';
-        //     });
-        // }
-    }
+            }, () => {
+                this.mes = 'Неправильно вказані дані або не активований акаунт';
+            });
+        }
 }

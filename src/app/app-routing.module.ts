@@ -14,7 +14,7 @@ const routes: Routes = [
     {path: 'top', loadChildren: './top/top.module#TopPageModule'},
     {path: 'movie/:id', loadChildren: './movie/movie.module#MoviePageModule'},
 
-    {path: 'userpage', loadChildren: './userpage/userpage.module#UserpagePageModule'},
+    {path: 'userpage/:id', loadChildren: './userpage/userpage.module#UserpagePageModule'},
     {path: 'logreg', loadChildren: './logreg/logreg.module#LogregPageModule'}
 
 ];
@@ -25,5 +25,4 @@ const routes: Routes = [
     ],
     exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

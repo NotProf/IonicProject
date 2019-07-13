@@ -34,6 +34,7 @@
         <input (click)="sendSearchForm(form)" type="submit" value="" class="submit"/>
     </form>
     <div style="background: rgba(37, 40, 37, 1); box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+
         <div *ngFor="let f of filmsAfterSlice" class="container" style="border-bottom: 1px solid #404040; ">
             <div style="padding: 0; margin: 20px 10px 0 10px; text-align: center">
                 <a class="film__label" [routerLink]="'/film/' + f.id"><h3 style="margin-top: 15px">{{f.name}}</h3>

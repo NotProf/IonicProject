@@ -1,44 +1,56 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {Platform} from '@ionic/angular';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserServiceService} from '../services/user-service.service';
+import {User} from '../models/User';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html'
+    selector: 'app-root',
+    templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  public appPages = [
-    {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
-      title: 'Top',
-      url: '/top',
-      icon: 'star'
-    },
-    {
-      title: 'My Page',
-      url: '/userpage',
-      icon: 'contact'
+
+    currentUser = new User();
+    currentID = 0;
+
+    public appPages = [
+        {
+            title: 'Home',
+            url: '/home',
+            icon: 'home'
+        },
+        {
+            title: 'Top',
+            url: '/top',
+            icon: 'star'
+        }
+    ];
+
+    constructor(
+        private platform: Platform,
+        private splashScreen: SplashScreen,
+        private statusBar: StatusBar,
+        private router: Router,
+        private userService: UserServiceService
+    ) {
+        this.initializeApp();
     }
-  ];
 
-  constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
-  ) {
-    this.initializeApp();
-  }
 
-  initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }
+    initializeApp() {
+        this.userService.getCurrentUser().subscribe((res) => {
+            this.currentUser = res;
+            this.currentID = res.id;
+        });
+        this.platform.ready().then(() => {
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
+            if (localStorage.getItem('_token') != null) {
+                this.router.navigateByUrl('/home');
+            }
+        });
+    }
 }

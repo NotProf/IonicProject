@@ -16,6 +16,14 @@
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" [routerLink]= "'/userpage/' + currentUser.id">
+              <ion-icon slot="start" name="contact"></ion-icon>
+              <ion-label>
+                My Page
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
         </ion-list>
       </ion-content>
     </ion-menu>
