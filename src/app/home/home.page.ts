@@ -4,6 +4,8 @@ import {Films} from '../../models/Films';
 import {NavController, PopoverController} from '@ionic/angular';
 import {NgForm} from '@angular/forms';
 import {GenreComponent} from '../genre/genre.component';
+import {User} from '../../models/User';
+import {UserServiceService} from '../../services/user-service.service';
 
 @Component({
     selector: 'app-home',
@@ -14,16 +16,24 @@ export class HomePage {
 
     constructor(private filmsS: FilmServiceService,
                 private nav: NavController,
-                private popoverController: PopoverController) {
+                private popoverController: PopoverController,
+                private userService: UserServiceService) {
     }
 
     films: Films [] = [];
     filmsAfterSlice: Films [] = [];
     maxSize = 2;
     moreButton;
-
+    currentUser = new User();
+    currentID;
 
     ionViewWillEnter() {
+        this.userService.getCurrentUser().subscribe((res) => {
+            this.currentUser = res;
+            this.currentID = res.id;
+            console.log(this.currentUser);
+            console.log(this.currentID);
+        });
         this.filmsS.getFilms().subscribe((res) => {
             this.films = res.reverse();
             this.filmsAfterSlice = this.films.slice(0, this.maxSize);
