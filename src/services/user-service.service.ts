@@ -31,7 +31,7 @@ export class UserServiceService {
 
     static handleNullUserError(err) {
         if (err instanceof TypeError) {
-            this.mes = 'err';
+            console.log('err');
         }
         return throwError(err);
     }

@@ -11,10 +11,11 @@ import {FileChooser} from '@ionic-native/file-chooser/ngx';
 import {Camera} from '@ionic-native/camera/ngx';
 import {File} from '@ionic-native/file/ngx';
 import {HomePage} from './home/home.page';
+import { NotThisUserDirective } from '../directives/not-this-user.directive';
 
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, NotThisUserDirective],
     entryComponents: [],
     imports: [
         BrowserModule,

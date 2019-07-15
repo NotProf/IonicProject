@@ -2,8 +2,8 @@
     <ion-grid>
         <ion-row>
             <ion-col class="film" size="6" *ngFor="let u of uFilms">
-                <ion-buttons>
-                <ion-button color="danger" (click)="deleteUserFilm(u.id)"><ion-icon name="close"></ion-icon></ion-button>
+                <ion-buttons appNotThisUser>
+                <ion-button  color="danger" (click)="deleteUserFilm(u.id)"><ion-icon name="close"></ion-icon></ion-button>
                 </ion-buttons>
                 <a class="film"  [routerLink]="'/film/' + u.id"><img class="film__image"
                                                                         [src]="u.picture" alt=""><span>{{u.name}}</span></a>

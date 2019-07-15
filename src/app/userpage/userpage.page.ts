@@ -14,7 +14,7 @@ import {AppComponent} from '../app.component';
     templateUrl: './userpage.page.html',
     styleUrls: ['./userpage.page.scss'],
 })
-export class UserpagePage implements OnInit{
+export class UserpagePage implements OnInit {
 
     constructor(public fileChooser: FileChooser,
                 public file: File,
@@ -32,9 +32,15 @@ export class UserpagePage implements OnInit{
     showUnshow = false;
     subButton = true;
     exist: boolean;
+    thisUser = new User();
 
 
     ngOnInit() {
+
+
+        this.userService.getCurrentUser().subscribe((res) => {
+            this.thisUser = res;
+        });
         this.activatedRoute.params.subscribe((value) => {
             this.currentID = Number(value.id);
         });
@@ -68,6 +74,7 @@ export class UserpagePage implements OnInit{
             this.camera.getPicture(options).then((imageData) => {
                 this.image = 'data:image/jpeg;base64,' + imageData;
             });
+
         } else {
             alert('This is BROWSER! Function not working');
         }
@@ -89,6 +96,15 @@ export class UserpagePage implements OnInit{
     unSubscribes() {
         this.userService.unSubscribes(this.currentID).subscribe(() => this.ngOnInit());
         this.ngOnInit();
+    }
+
+    save() {
+        const fd: FormData = new FormData();
+        fd.append('avatar', this.image);
+        this.activatedRoute.params.subscribe((value) => {
+            this.currentID = Number(value.id);
+            this.userService.setAvatar(fd).subscribe();
+        });
     }
 }
 
