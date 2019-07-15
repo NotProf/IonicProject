@@ -19,7 +19,7 @@
 .about {
   overflow-y: hidden;
   text-overflow: ellipsis;
-  height: 230px;
+  height: 235px;
   position: relative;
 }
 
@@ -29,7 +29,7 @@
   right: 0;
   bottom: 0;
   width: 100%;
-  height: 20px;
+  height: 17px;
   background: linear-gradient(-198deg, rgba(37, 40, 37, 0.1) 0%, rgba(37, 40, 36, 1) 100%);
 }
 
@@ -61,46 +61,24 @@
   outline: none;
 }
 
-.search > .submit {
-  outline: none;
-  position: absolute;
-  right: 2%;
-  width: 50px;
-  height: 5%;
-  cursor: pointer;
-  background: url(https://lh4.googleusercontent.com/-b-5aBxcxarY/UAfFW9lVyjI/AAAAAAAABUg/gQtEXuPuIds/s13/go.png) 50% no-repeat;
-  opacity: 0.5;
+.font-900{
+  font-weight: 900;
+  font-size: 18px;
+}
+.desc{
+  color: #e80500;
+  font-size: 18px;
+  font-family: cursive;
+}
+ion-content{
+  --background: #111111;
+}
+ion-card{
+  --background: rgba(37, 40, 37, 1);;
+  --color: white;
+}
+.ionSearch{
+  background:  #575757;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.sorted {
-  padding: 0;
-  text-align: center;
-}
-
-.sorted > ion-button {
-  width: 50px;
-  height: 30px;
-}
-
-@media (min-width: 280px) {
-  .sorted>ion-button{
-    width: 58px;
-    height: 40px;
-  }
-}
-
-@media(min-width: 500px) {
-  .search > .submit {
-    height: 10%;
-  }
-  .sorted > ion-button {
-    width: 80px;
-    height: 50px;
-  }
-}
-
-@media (min-width: 850px) {
-  .search > .submit {
-    height: 4%;
-  }
-}

@@ -1,3 +1,42 @@
-<p>
-  comments works!
-</p>
+<h5 [routerLink]="" class="off">12 comments</h5>
+<form  #form ='ngForm'>
+  <textarea class="textArea" placeholder="Write your comment" ngModel name="text"></textarea>
+  <input  class="btn btn-secondary cl-grey" type="submit" (click)="add(form)">
+</form>
+<div class="allcomment bottom">
+
+  <div class="main-comment">
+
+    <div style="display: inline-block" [routerLink]=""><img class="avatar" src="assets/ava.jpg"></div>
+    <div class="comment-content">
+      <span  [routerLink]="" class="username">some men</span>
+      <span class="dateOfComment" >12.02.12</span>
+      <div class="comment">normalno</div>
+    </div>
+
+  </div>
+
+
+  <div class="main-comment">
+
+    <div style="display: inline-block" [routerLink]=""><img class="avatar" src="assets/ava.jpg"></div>
+    <div class="comment-content">
+      <span  [routerLink]="" class="username">asdfgh</span>
+      <span class="dateOfComment" >12.-1</span>
+      <div class="comment">normalno</div>
+    </div>
+
+  </div>
+
+
+  <div class="main-comment">
+
+    <div style="display: inline-block" [routerLink]=""><img class="avatar" src="assets/ava.jpg"></div>
+    <div class="comment-content">
+      <span  [routerLink]="" class="username">asdfgh</span>
+      <span class="dateOfComment" >12.-1</span>
+      <div class="comment">normalno</div>
+    </div>
+
+  </div>
+</div>

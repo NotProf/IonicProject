@@ -1,0 +1,80 @@
+
+.avatar{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid black;
+  cursor: pointer;
+  /*display: inline;*/
+}
+.username{
+  color: #3a392a;
+  font-size: 120%;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.comment {
+  color: #b3b7ac;
+  clear: both;
+}
+.allcomment {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.main-comment{
+  display: flex;
+  justify-content: left;
+  width: 80%;
+  margin: 20px 0 0 20px;
+}
+.formComment {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.formComment a {
+  color: #1fce04;
+  text-decoration: underline;
+}
+.cl-grey {
+  background: #4b4b4b;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border: 1px solid #1fce04;
+}
+
+.textArea{
+  width: 100%;
+  display: block;
+  background: rgba(255, 255, 255, 0.63);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.comment-content {
+  display: inline-block;
+  width: 80%;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  //border-bottom-left-radius: 20px;
+  //border-bottom-right-radius: 20px;
+  border: 1px solid rgba(143, 146, 143, 0.91);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.dateOfComment{
+  margin-right: 5px;
+  float: right;
+  color: #434345;
+}
+.off{
+  text-align: center;
+  color: #3b3a36;
+  cursor: pointer;
+  font-family: "Maiandra GD";
+  outline: none;
+}
+
+.bottom{
+  border-bottom: 2px solid darkgrey;
+  margin-bottom: 40px;
+}
+
