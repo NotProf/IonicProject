@@ -38,7 +38,7 @@ export class UserpagePage implements OnInit{
         this.activatedRoute.params.subscribe((value) => {
             this.currentID = Number(value.id);
         });
-        this.userService.getCurrentUser().subscribe((res) => {
+        this.userService.getUserById(this.currentID).subscribe((res) => {
             this.currentUser = res;
             this.currentID = res.id;
         });

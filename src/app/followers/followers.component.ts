@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../../models/User';
+import {UserServiceService} from '../../services/user-service.service';
+import {UserpagePage} from '../userpage/userpage.page';
 
 @Component({
   selector: 'app-followers',
@@ -7,8 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FollowersComponent implements OnInit {
 
-  constructor() { }
+  id: number;
+  followers: User[];
 
-  ngOnInit() {}
+  constructor(private userService: UserServiceService, private userPage: UserpagePage) { }
+
+  ngOnInit() {
+    this.id = this.userPage.currentID;
+    this.userService.getSubscribes(this.id).subscribe((res) => {
+      this.followers = res;
+    });
+  }
 
 }

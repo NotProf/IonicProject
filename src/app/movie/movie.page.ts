@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {FilmServiceService} from '../../services/film-service.service';
 import {Films} from '../../models/Films';
+import {HomePage} from '../home/home.page';
 
 @Component({
   selector: 'app-movie',
@@ -15,7 +16,8 @@ export class MoviePage implements OnInit {
   title = 'Movie';
   SelectMovie = true;
   constructor(private activateRoute: ActivatedRoute,
-              private filmService: FilmServiceService) { }
+              private filmService: FilmServiceService,
+              private home: HomePage) { }
 
   ngOnInit() {
     this.activateRoute.params.subscribe((param) => {
@@ -34,4 +36,7 @@ export class MoviePage implements OnInit {
     this.SelectMovie = check;
   }
 
+  add() {
+    this.home.addUserFilm(this.currentID);
+  }
 }

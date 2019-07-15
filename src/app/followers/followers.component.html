@@ -1,2 +1,13 @@
 <div class="main" ><h3>FOLLOWERS</h3>
 </div>
+
+<ion-grid>
+    <ion-row>
+        <ion-col class="mycol-lg" *ngFor="let f of followers" [routerLink]="'/userpage/' + f.id" size="4">
+            <img class="user-img" [src]="f.avatar">
+            <span style="color: seagreen">{{f.username}}</span>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+
+

@@ -1,9 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {HomePage} from '../home/home.page';
+import {Component, OnInit} from '@angular/core';
 import {PopoverController} from '@ionic/angular';
 import {MessageService} from '../../services/message.service';
-import {MoviePage} from '../movie/movie.page';
-import {MoviePageModule} from '../movie/movie.module';
 
 @Component({
   selector: 'app-genre',

@@ -1,8 +1,16 @@
 .main {
   width: 95%;
-  background: white;
-  border: 1px solid rgba(143, 146, 143, 0.91);
   margin: 10% auto;
   text-align: center;
   color: black;
+}
+.user-img{
+  border-radius: 50%;
+  border: 2px solid black;
+  outline: none;
+}
+
+.mycol-lg {
+  border-radius: 50%;
+  text-align: center;
 }
