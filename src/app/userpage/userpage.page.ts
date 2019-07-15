@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {User} from '../../models/User';
 import {FileChooser} from '@ionic-native/file-chooser/ngx';
 import {Platform} from '@ionic/angular';
@@ -14,7 +14,7 @@ import {AppComponent} from '../app.component';
     templateUrl: './userpage.page.html',
     styleUrls: ['./userpage.page.scss'],
 })
-export class UserpagePage implements OnInit {
+export class UserpagePage implements OnInit{
 
     constructor(public fileChooser: FileChooser,
                 public file: File,
@@ -33,8 +33,8 @@ export class UserpagePage implements OnInit {
     subButton = true;
     exist: boolean;
 
-    ngOnInit() {
 
+    ngOnInit() {
         this.activatedRoute.params.subscribe((value) => {
             this.currentID = Number(value.id);
         });
@@ -80,7 +80,6 @@ export class UserpagePage implements OnInit {
         this.userService.setStatus('Offline').subscribe();
         this.router.navigateByUrl('/logreg/log');
     }
-
 
 
     subscribes() {
