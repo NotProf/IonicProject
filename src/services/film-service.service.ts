@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Films} from '../models/Films';
+import {Comments} from '../models/Comments';
 
 @Injectable({
     providedIn: 'root'
@@ -38,7 +39,7 @@ export class FilmServiceService {
     }
 
     getFilmById(id: number): Observable<Films> {
-        return this.http.post<Films>(this.url + 'getbyid', id, {headers: this.headersOption});
+        return this.http.post<Films>(this.url + 'getbyid', id);
     }
 
     findByGenre(genre: string): Observable<Films[]> {
@@ -62,5 +63,8 @@ export class FilmServiceService {
 
     addComment(form: FormData) {
         return this.http.post(this.url + 'addComment', form, {headers: this.headersOption});
+    }
+    getComments(id: number): Observable<Comments[]> {
+        return this.http.post<Comments[]>(this.url + 'getComments', id, {headers: this.headersOption});
     }
 }

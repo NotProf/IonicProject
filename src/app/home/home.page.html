@@ -28,33 +28,28 @@
         <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Cartoons')"><span style="font-size: 11px">Cartoons</span></ion-button>-->
         <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Serials')"><span style="font-size: 11px">Serials</span></ion-button>-->
     <!--</div>-->
-    <form #form="ngForm" method="get" class="search col-lg-5" id="search">
-        <input type="search" ngModel name="search" placeholder="Search"
-               class="input"/>
-        <input (click)="sendSearchForm(form)" type="submit" value="" class="submit"/>
-    </form>
-    <div style="background: rgba(37, 40, 37, 1); box-shadow: 0 0 10px rgba(0,0,0,0.5);">
-
-        <div *ngFor="let f of filmsAfterSlice" class="container" style="border-bottom: 1px solid #404040; ">
+    <ion-searchbar showCancelButton="never" class="ionSearch" color="medium" (ionChange)="sendSearchForm($event)" animated>
+    </ion-searchbar>
+    <ion-card *ngFor="let f of filmsAfterSlice"[routerLink]="'/movie/' + f.id"  routerDirection="forward">
+        <div  class="container" style="border-bottom: 1px solid #404040; ">
             <div style="padding: 0; margin: 20px 10px 0 10px; text-align: center">
-                <a class="film__label" [routerLink]="'/film/' + f.id"><h3 style="margin-top: 15px">{{f.name}}</h3>
+                <a class="film__label" [routerLink]="'/movie/' + f.id" ><h3 style="margin-top: 15px">{{f.name}}</h3>
                 </a>
-                <a class="films__rec2" [routerLink]="'/film/' + f.id"><img class="f__img"
-                                                                           alt="" [src]="f.picture"></a>
+                <a class="films__rec2" [routerLink]="'/movie/' + f.id" ><img class="f__img"  alt="" [src]="f.picture"></a>
             </div>
             <div class=" film__cont"><p class="about">
               <span style="display: block; float: right; margin-right: 10px">
-              <img width="50px" height="50px" src="/assets/star2.png" alt="">
+              <ion-icon name="star" color="warning" size="large"></ion-icon>
               <span style="color: goldenrod; font-size: 20px">{{f.score | number:'1.1-2'}}</span>
             </span>
-                <span style="font-weight: 900">Year: </span><span
-                    style="color: #e80500; font-size: 18px; font-family: cursive">{{f.year}}</span><br>
-                <span style="font-weight: 900">Country: </span><span
-                    style="color: #e80500; font-size: 18px; font-family: cursive">{{f.country}}</span> <br>
-                <span style="font-weight: 900">Quality: </span><span
-                    style="color: #e80500; font-size: 18px; font-family: cursive">{{f.quality}}</span> <br>
-                <span style="font-weight: 900;">About: </span><span
-                    style="color: rgba(107,107,107,0.87)">{{f.aboutFilm}}</span><br>
+                <span class="font-900">Year: </span><span
+                    class="desc">{{f.year}}</span><br>
+                <span class="font-900">Country: </span><span
+                    class="desc">{{f.country}}</span> <br>
+                <span class="font-900">Quality: </span><span
+                    class="desc">{{f.quality}}</span> <br>
+                <span class="font-900" >About: </span>
+                <span style="color: rgba(107,107,107,0.87)">{{f.aboutFilm}}</span><br>
             </p></div>
             <div style="text-align: center; margin: 20px 0 10px;">
                 <ion-button [routerLink]="'/movie/' + f.id" style="width: 100px; color: white"
@@ -67,6 +62,6 @@
                 </ion-button>
             </div>
         </div>
-    </div>
+    </ion-card>
     <ion-button *ngIf="moreButton" (click)="showMore()" expand="full" color="secondary">Show more</ion-button>
 </ion-content>

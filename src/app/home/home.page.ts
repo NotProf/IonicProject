@@ -1,20 +1,25 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FilmServiceService} from '../../services/film-service.service';
 import {Films} from '../../models/Films';
 import {NavController, PopoverController} from '@ionic/angular';
 import {NgForm} from '@angular/forms';
 import {GenreComponent} from '../genre/genre.component';
+import {MessageService} from '../../services/message.service';
 
 @Component({
     selector: 'app-home',
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss'],
+    providers: [MessageService]
 })
-export class HomePage {
-
+export class HomePage implements OnInit {
+message = '';
     constructor(private filmsS: FilmServiceService,
-                private nav: NavController,
-                private popoverController: PopoverController) {
+                private popoverController: PopoverController,
+                private massageService: MessageService) {
+        this.massageService.getMessage().subscribe((res) => {
+            this.message = res;
+        });
     }
 
     films: Films [] = [];
@@ -57,9 +62,10 @@ export class HomePage {
             this.filmsAfterSlice = this.films.slice(0, this.maxSize);
         });
     }
-    sendSearchForm(form: NgForm) {
-        if (form.value.search !== '') {
-            this.filmsS.findSearchingFilm(form.value.search).subscribe(res => {
+    sendSearchForm(event) {
+        const form = event.target.value;
+        if (form !== '') {
+            this.filmsS.findSearchingFilm(form).subscribe(res => {
                 this.films = res;
                 this.filmsAfterSlice = this.films.slice(0, this.maxSize);
             });
@@ -69,6 +75,9 @@ export class HomePage {
                 this.filmsAfterSlice = this.films.slice(0, this.maxSize);
             });
         }
+    }
+
+    ngOnInit(): void {
     }
 
 }

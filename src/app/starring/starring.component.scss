@@ -1,0 +1,24 @@
+.bottom{
+  border-bottom: 2px solid darkgrey;
+  margin-bottom: 40px;
+}
+.actor{
+  width: 100%;
+  height: 150px;
+  display: flex;
+  margin-top: 40px
+}
+.actor1{
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+}
+.actorImg{
+  width: 60%;
+  height: 85%;
+  border: 1px solid greenyellow;
+}
+.starring{
+  border: 1px solid lightgrey;
+}
+

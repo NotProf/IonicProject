@@ -15,7 +15,8 @@ import {GenreComponent} from '../genre/genre.component';
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: HomePage,
+        children: [{path: '', component: GenreComponent}]
       }
     ])
   ],
