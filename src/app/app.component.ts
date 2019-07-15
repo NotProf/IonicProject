@@ -6,12 +6,14 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserServiceService} from '../services/user-service.service';
 import {User} from '../models/User';
+import {FilmServiceService} from '../services/film-service.service';
+import {HomePage} from './home/home.page';
 
 @Component({
     selector: 'app-root',
     templateUrl: 'app.component.html'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
     currentUser = new User();
     currentID = 0;
@@ -34,23 +36,18 @@ export class AppComponent implements OnInit{
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
         private router: Router,
-        private userService: UserServiceService
+        private userService: UserServiceService,
+        private filmService: FilmServiceService,
+        private home: HomePage
     ) {
-        this.ngOnInit();
     }
 
 
     ngOnInit() {
-
-        if (localStorage.getItem('_token') != null) {
-            this.userService.setStatus('Online').subscribe();
-        } else {
-            this.userService.setStatus('Offline').subscribe();
-        }
         this.userService.getCurrentUser().subscribe((res) => {
             this.currentUser = res;
             this.currentID = res.id;
-        });
+        }, () => console.log('u have to login for more rules'));
         this.platform.ready().then(() => {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
@@ -60,3 +57,4 @@ export class AppComponent implements OnInit{
         });
     }
 }
+

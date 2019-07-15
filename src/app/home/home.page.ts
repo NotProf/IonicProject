@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FilmServiceService} from '../../services/film-service.service';
 import {Films} from '../../models/Films';
 import {NavController, PopoverController} from '@ionic/angular';
@@ -12,7 +12,7 @@ import {UserServiceService} from '../../services/user-service.service';
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
 
     constructor(private filmsS: FilmServiceService,
@@ -29,11 +29,18 @@ export class HomePage {
     currentID;
     userfilmItar = false;
 
-    ionViewWillEnter() {
+    ngOnInit() {
+        if (localStorage.getItem('_token') != null) {
+            this.userService.setStatus('Online').subscribe();
+        } else {
+            this.userService.setStatus('Offline').subscribe();
+        }
         this.userService.getCurrentUser().subscribe((res) => {
             this.currentUser = res;
             this.currentID = res.id;
+            console.log(res);
         });
+
         this.filmsS.getFilms().subscribe((res) => {
             this.films = res.reverse();
             this.filmsAfterSlice = this.films.slice(0, this.maxSize);
@@ -56,6 +63,7 @@ export class HomePage {
             this.moreButton = false;
         }
     }
+
 // dcsc
     showMore() {
         this.maxSize += 2;

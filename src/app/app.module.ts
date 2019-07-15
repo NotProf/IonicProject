@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FileChooser} from '@ionic-native/file-chooser/ngx';
 import {Camera} from '@ionic-native/camera/ngx';
 import {File} from '@ionic-native/file/ngx';
+import {HomePage} from './home/home.page';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import {File} from '@ionic-native/file/ngx';
         FileChooser,
         Camera,
         File,
+        HomePage,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent]
