@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 
     currentUser = new User();
     currentID = 0;
+    mes = '';
 
     public appPages = [
         {
@@ -47,7 +48,7 @@ export class AppComponent implements OnInit {
         this.userService.getCurrentUser().subscribe((res) => {
             this.currentUser = res;
             this.currentID = res.id;
-        }, () => console.log('u have to login for more rules'));
+        }, () => this.mes = 'Please login');
         this.platform.ready().then(() => {
             this.statusBar.styleDefault();
             this.splashScreen.hide();

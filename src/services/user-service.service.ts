@@ -11,6 +11,8 @@ import {Router} from '@angular/router';
 })
 export class UserServiceService {
 
+    mes = '';
+
     url = 'http://localhost:8080/';
 
     constructor(private http: HttpClient, private router: Router) {
@@ -29,7 +31,7 @@ export class UserServiceService {
 
     static handleNullUserError(err) {
         if (err instanceof TypeError) {
-            console.log('typeError');
+            this.mes = 'err';
         }
         return throwError(err);
     }

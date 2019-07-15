@@ -63,5 +63,7 @@
             </div>
         </div>
     </ion-card>
-    <ion-button *ngIf="moreButton" (click)="showMore()" expand="full" color="secondary">Show more</ion-button>
+    <ion-buttons>
+    <ion-button class="moreFilms" *ngIf="moreButton" (click)="showMore()" expand="full">Show more <ion-icon name="arrow-round-down"></ion-icon></ion-button>
+    </ion-buttons>
 </ion-content>

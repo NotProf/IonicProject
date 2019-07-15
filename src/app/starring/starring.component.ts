@@ -11,7 +11,7 @@ import {Actors} from '../../models/Actors';
 })
 export class StarringComponent implements OnInit {
   currentMovie: Films = new Films();
-  actors: Actors[] = [];
+  actors: Actors[];
   constructor(private fimsService: FilmServiceService, private moviePage: MoviePage) {
     this.fimsService.getFilmById(this.moviePage.currentID).subscribe((res) => {
       this.currentMovie = res;

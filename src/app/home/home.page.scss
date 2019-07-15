@@ -76,9 +76,14 @@ ion-content{
 ion-card{
   --background: rgba(37, 40, 37, 1);;
   --color: white;
+  margin-bottom: 0;
 }
 .ionSearch{
   background:  #575757;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+.moreFilms{
+  margin: 0 auto;
+  color: white;
+}
