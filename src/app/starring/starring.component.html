@@ -1,3 +1,17 @@
-<p>
-  starring works!
-</p>
+<div class="bottom starring">
+
+  <div class="actor">
+    <div class="actor1" *ngFor="let n of [0,1]">
+      <img src="{{actors[n].image}}" alt=""  class="actorImg" >
+      <div>{{actors[n].name}}</div>
+    </div>
+  </div>
+
+  <div class="actor" >
+    <div class="actor1" *ngFor="let n of [2,3]">
+      <img src="{{actors[n].image}}" alt=""  class="actorImg" >
+      <div>{{actors[n].name}}</div>
+    </div>
+  </div>
+
+</div>

@@ -4,6 +4,7 @@ import {Films} from '../../models/Films';
 import {NavController, PopoverController} from '@ionic/angular';
 import {NgForm} from '@angular/forms';
 import {GenreComponent} from '../genre/genre.component';
+import {MessageService} from '../../services/message.service';
 import {User} from '../../models/User';
 import {UserServiceService} from '../../services/user-service.service';
 
@@ -63,8 +64,6 @@ export class HomePage implements OnInit {
             this.moreButton = false;
         }
     }
-
-// dcsc
     showMore() {
         this.maxSize += 2;
         this.filmsAfterSlice = this.films.slice(0, this.maxSize);
@@ -77,10 +76,10 @@ export class HomePage implements OnInit {
             this.filmsAfterSlice = this.films.slice(0, this.maxSize);
         });
     }
-
-    sendSearchForm(form: NgForm) {
-        if (form.value.search !== '') {
-            this.filmsS.findSearchingFilm(form.value.search).subscribe(res => {
+    sendSearchForm(event) {
+        const form = event.target.value;
+        if (form !== '') {
+            this.filmsS.findSearchingFilm(form).subscribe(res => {
                 this.films = res;
                 this.filmsAfterSlice = this.films.slice(0, this.maxSize);
             });
@@ -109,5 +108,6 @@ export class HomePage implements OnInit {
             alert('Exists');
         }
     }
+
 
 }
