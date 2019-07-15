@@ -18,7 +18,7 @@
           <!--</ion-menu-toggle>-->
           <ion-menu-toggle auto-hide="false">
             <ion-item [routerDirection]="'root'" routerLink="/home">
-              <ion-icon slot="start" name="contact"></ion-icon>
+              <ion-icon slot="start" name="home"></ion-icon>
               <ion-label>
                 Home
               </ion-label>
@@ -26,7 +26,7 @@
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="false">
             <ion-item [routerDirection]="'root'" routerLink= "/top">
-              <ion-icon slot="start" name="contact"></ion-icon>
+              <ion-icon slot="start" name="star"></ion-icon>
               <ion-label>
                 Top
               </ion-label>
@@ -35,6 +35,14 @@
           <ion-menu-toggle auto-hide="false">
             <ion-item [routerDirection]="'root'" [routerLink]= "'/userpage/' + currentUser.id">
               <ion-icon slot="start" name="contact"></ion-icon>
+              <ion-label>
+                My Page
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item [routerDirection]="'root'" routerLink="/people">
+              <ion-icon slot="start" name="contacts"></ion-icon>
               <ion-label>
                 My Page
               </ion-label>
