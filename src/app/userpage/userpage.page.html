@@ -27,6 +27,9 @@
             </ion-button>
         </div>
     </ion-item>
+
+    <ion-button color="success" (click)="subscribes()" *ngIf="subButton && !exist">Subscribe</ion-button>
+    <ion-button color="danger" (click)="unSubscribes()" *ngIf="subButton && exist">Unsubscribe</ion-button>
     <div class="aboutUser">
         <h3 class="aboutH">Email: <span style="font-size: 16px; opacity: 0.7">{{currentUser.email}}</span></h3>
         <h3 class="aboutH">Films in library: <a [routerLink]="'/userpage/' + currentUser.id + '/userfilms'">{{currentUser.usersFilms.length}}</a></h3>

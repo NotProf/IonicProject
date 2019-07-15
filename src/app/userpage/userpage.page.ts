@@ -29,11 +29,30 @@ export class UserpagePage implements OnInit {
     currentUser = new User();
     currentID = 0;
     image = 'assets/ava.jpg';
+    showUnshow = false;
+    subButton = true;
+    exist: boolean;
 
     ngOnInit() {
+
+        this.activatedRoute.params.subscribe((value) => {
+            this.currentID = Number(value.id);
+        });
         this.userService.getCurrentUser().subscribe((res) => {
             this.currentUser = res;
             this.currentID = res.id;
+        });
+        this.userService.compareUser(this.currentID).subscribe((res) => {
+            this.showUnshow = res;
+            if (this.showUnshow === false) {
+                this.subButton = true;
+            } else {
+                this.subButton = false;
+            }
+        }, () => console.log('u have to login for more rules'));
+
+        this.userService.existIntFriends(this.currentID).subscribe((res) => {
+            this.exist = res;
         });
     }
 
@@ -58,7 +77,19 @@ export class UserpagePage implements OnInit {
         localStorage.removeItem('_token');
         localStorage.removeItem('_currentUser');
         this.currentUser.status = 'offline';
+        this.userService.setStatus('Offline').subscribe();
         this.router.navigateByUrl('/logreg/log');
+    }
+
+
+
+    subscribes() {
+        this.userService.addSubscribes(this.currentID).subscribe(() => this.ngOnInit());
+    }
+
+    unSubscribes() {
+        this.userService.unSubscribes(this.currentID).subscribe(() => this.ngOnInit());
+        this.ngOnInit();
     }
 }
 
