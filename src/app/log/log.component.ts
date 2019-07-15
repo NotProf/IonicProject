@@ -34,7 +34,7 @@ export class LogComponent implements OnInit {
                 localStorage.setItem('_currentUser', currentUser);
                 localStorage.setItem('_token', token);
                 this.submitted = true;
-                this.router.navigateByUrl('/home');
+                location.href = '/home';
             }, () => {
                 this.mes = 'Неправильно вказані дані або не активований акаунт';
             });

@@ -61,7 +61,8 @@ export class UserServiceService {
     }
 
     getCurrentUser(): Observable<User> {
-        return this.http.get<User>(this.url + 'get', {headers: this.headersOption}).pipe(catchError(UserServiceService.handleNullUserError));
+        return this.http.get<User>(this.url + 'get', {headers: this.headersOption})
+            .pipe(catchError(UserServiceService.handleNullUserError));
     }
 
     getUserById(id: number): Observable<User> {
