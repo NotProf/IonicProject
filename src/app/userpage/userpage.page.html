@@ -15,7 +15,7 @@
 <ion-content>
     <ion-item no-padding>
         <div class="userImg">
-            <ion-label><h1 style="margin-top: 4%; font-family: fantasy">{{currentUser.username}}</h1></ion-label>
+            <ion-label><h1 style="margin-top: 4%; font-family: fantasy; color: whitesmoke">{{currentUser.username}}</h1></ion-label>
             <div style="margin-top: 4%"><img class="ava" id="ava" [src]="currentUser.avatar"></div>
             <ion-label><h6 style="color: red;"
                            *ngIf="currentUser.status.toLowerCase() == 'offline'; else off">{{currentUser.status}}</h6>
