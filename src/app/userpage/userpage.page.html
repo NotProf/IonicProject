@@ -16,15 +16,18 @@
     <ion-item no-padding>
         <div class="userImg">
             <ion-label><h1 style="margin-top: 4%; font-family: fantasy">{{currentUser.username}}</h1></ion-label>
-            <div style="margin-top: 4%"><img class="ava" id="ava" [src]="image"></div>
-            <ion-label><h6 style="color: red;" *ngIf="currentUser.status.toLowerCase() == 'offline'; else off">{{currentUser.status}}</h6></ion-label>
+            <div style="margin-top: 4%"><img class="ava" id="ava" [src]="currentUser.avatar"></div>
+            <ion-label><h6 style="color: red;"
+                           *ngIf="currentUser.status.toLowerCase() == 'offline'; else off">{{currentUser.status}}</h6>
+            </ion-label>
             <ng-template #off>
-                <h5  style="color: #1fce04;">{{currentUser.status}}</h5>
+                <h5 style="color: #1fce04;">{{currentUser.status}}</h5>
             </ng-template>
-            <ion-button color="light" (click)="selectFile()">
-            <ion-button color="light" (click)="save()">
-                <ion-icon name="camera"></ion-icon>
-            </ion-button>
+                <label class="avatar_input"> <input class="avatar" ngModel name="avatar" id="fileInput"  type="file" (change)="handleFileInput($event)">
+                    <ion-icon name="camera"></ion-icon>
+                </label>
+                <!--<label class="avatar_input"><input class="avatar" type="submit">Save changes</label>-->
+                <!--<label class="avatar_input"><ion-button color="light" type="submit">save</ion-button></label>-->
         </div>
     </ion-item>
 
@@ -32,9 +35,12 @@
     <ion-button color="danger" (click)="unSubscribes()" *ngIf="subButton && exist">Unsubscribe</ion-button>
     <div class="aboutUser">
         <h3 class="aboutH">Email: <span style="font-size: 16px; opacity: 0.7">{{currentUser.email}}</span></h3>
-        <h3 class="aboutH">Films in library: <a [routerLink]="'/userpage/' + currentUser.id + '/userfilms'">{{currentUser.usersFilms.length}}</a></h3>
-        <h3 class="aboutH">Followers: <a [routerLink]="'/userpage/' + currentUser.id + '/followers'">{{currentUser.subscribes.length}}</a></h3>
-        <h3 class="aboutH">Following: <a [routerLink]="'/userpage/' + currentUser.id + '/following'">{{currentUser.folowing.length}}</a></h3>
+        <h3 class="aboutH">Films in library: <a
+                [routerLink]="'/userpage/' + currentUser.id + '/userfilms'">{{currentUser.usersFilms.length}}</a></h3>
+        <h3 class="aboutH">Followers: <a
+                [routerLink]="'/userpage/' + currentUser.id + '/followers'">{{currentUser.subscribes.length}}</a></h3>
+        <h3 class="aboutH">Following: <a
+                [routerLink]="'/userpage/' + currentUser.id + '/following'">{{currentUser.folowing.length}}</a></h3>
     </div>
 
 

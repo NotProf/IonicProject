@@ -34,11 +34,10 @@ ion-item{
 
 
 .ava {
-  width: 55%;
-  height: 55%;
-  border-radius: 50%;
+  width: 250px;
+  height: 300px;
   box-shadow: 0 0 30px seagreen;
-
+  opacity: 0.8;
 }
 
 .aboutH{
@@ -52,6 +51,15 @@ ion-item{
   text-decoration: underline;
   font-size: 20px;
   font-weight: 600;
+}
+
+.avatar {
+  display: none;
+}
+
+.avatar_input {
+  cursor: pointer;
+  margin: 0;
 }
 
 
