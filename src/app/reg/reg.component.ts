@@ -42,7 +42,10 @@ export class RegComponent implements OnInit {
                     this.mes = 'Username already exist';
                 } else {
                     this.mes = 'Thanks for registering! You can login now';
-                    this.submitted = true;
+                    setTimeout(() => {
+                        this.router.navigateByUrl('logreg/log');
+                    }, 1000);
+
                     if (this.authForm.invalid) {
                         return;
                     }
