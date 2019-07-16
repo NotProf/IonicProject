@@ -15,7 +15,8 @@ const routes: Routes = [
     {path: 'movie/:id', loadChildren: './movie/movie.module#MoviePageModule'},
 
     {path: 'userpage/:id', loadChildren: './userpage/userpage.module#UserpagePageModule'},
-    {path: 'logreg', loadChildren: './logreg/logreg.module#LogregPageModule'},  { path: 'people', loadChildren: './people/people.module#PeoplePageModule' }
+    {path: 'logreg', loadChildren: './logreg/logreg.module#LogregPageModule'},  { path: 'people', loadChildren: './people/people.module#PeoplePageModule' },
+  { path: 'trailer', loadChildren: './trailer/trailer.module#TrailerPageModule' }
 
 
 ];

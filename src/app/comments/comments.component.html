@@ -1,41 +1,17 @@
-<h5 [routerLink]="" class="off">12 comments</h5>
+<h5 [routerLink]="" class="off"><span class="green">{{comments.length}}</span> comments</h5>
 <form  #form ='ngForm'>
   <textarea class="textArea" placeholder="Write your comment" ngModel name="text"></textarea>
   <input  class="btn btn-secondary cl-grey" type="submit" (click)="add(form)">
 </form>
 <div class="allcomment bottom">
 
-  <div class="main-comment">
-
-    <div style="display: inline-block" [routerLink]=""><img class="avatar" src="assets/ava.jpg"></div>
+  <div class="main-comment" *ngFor="let comment of comments">
+    <div style="display: inline-block" [routerLink]="'/userpage/' + comment.userID">
+      <img class="avatar" src="{{comment.avatar}}"></div>
     <div class="comment-content">
-      <span  [routerLink]="" class="username">some men</span>
-      <span class="dateOfComment" >12.02.12</span>
-      <div class="comment">normalno</div>
-    </div>
-
-  </div>
-
-
-  <div class="main-comment">
-
-    <div style="display: inline-block" [routerLink]=""><img class="avatar" src="assets/ava.jpg"></div>
-    <div class="comment-content">
-      <span  [routerLink]="" class="username">asdfgh</span>
-      <span class="dateOfComment" >12.-1</span>
-      <div class="comment">normalno</div>
-    </div>
-
-  </div>
-
-
-  <div class="main-comment">
-
-    <div style="display: inline-block" [routerLink]=""><img class="avatar" src="assets/ava.jpg"></div>
-    <div class="comment-content">
-      <span  [routerLink]="" class="username">asdfgh</span>
-      <span class="dateOfComment" >12.-1</span>
-      <div class="comment">normalno</div>
+      <span  [routerLink]="'/userpage/' + comment.userID" class="username">{{comment.username}}</span>
+      <span class="dateOfComment" >{{comment.date}}</span>
+      <div class="comment">{{comment.text}}</div>
     </div>
 
   </div>

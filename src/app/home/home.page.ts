@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FilmServiceService} from '../../services/film-service.service';
 import {Films} from '../../models/Films';
-import {NavController, PopoverController} from '@ionic/angular';
-import {NgForm} from '@angular/forms';
-import {GenreComponent} from '../genre/genre.component';
-import {MessageService} from '../../services/message.service';
+import {ModalController, NavController, PopoverController} from '@ionic/angular';
 import {User} from '../../models/User';
 import {UserServiceService} from '../../services/user-service.service';
+import {TrailerPage} from '../trailer/trailer.page';
 
 @Component({
     selector: 'app-home',
@@ -18,6 +16,7 @@ export class HomePage implements OnInit {
 
     constructor(private filmsS: FilmServiceService,
                 private nav: NavController,
+                private modalController: ModalController,
                 private popoverController: PopoverController,
                 private userService: UserServiceService) {
     }
@@ -49,12 +48,14 @@ export class HomePage implements OnInit {
         });
     }
 
-    async present(event) {
-        const popover = await this.popoverController.create({
-            component: GenreComponent,
-            event
+    async present(id: number) {
+        const modal = await this.modalController.create({
+            component: TrailerPage,
+            componentProps: {
+                data: id
+            }
         });
-        await popover.present();
+        await modal.present();
     }
 
     checkButton() {
@@ -110,4 +111,14 @@ export class HomePage implements OnInit {
     }
 
 
+    genre(event) {
+        const genre = event.target.value;
+        if (genre.toLowerCase() === 'all') {
+            this.ngOnInit();
+        }
+        this.filmsS.findByGenre(genre).subscribe((res) => {
+            this.films = res;
+            this.filmsAfterSlice = this.films.slice(0, this.maxSize);
+        });
+    }
 }

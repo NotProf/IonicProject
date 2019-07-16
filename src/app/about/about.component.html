@@ -5,8 +5,8 @@
       <h2 class="filmName">{{currentMovie.name}}</h2>
       <small>Rate the movie</small>
       <ion-buttons>
-        <ion-button *ngFor="let n of [1,2,3,4,5]" >
-          <ion-icon name="star" color="warning"></ion-icon>
+        <ion-button *ngFor="let n of [1,2,3,4,5]" (click)="rate(n)">
+          <ion-icon name="star-outline" color="warning"></ion-icon>
         </ion-button>
       </ion-buttons>
       <h3 class="score">{{currentMovie.score | number: "1.1-2"}}/5</h3>

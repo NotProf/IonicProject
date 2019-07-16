@@ -1,0 +1,18 @@
+ion-content{
+  --background: black;
+}
+
+.video{
+  margin-top: 50%;
+}
+ion-header{
+  ion-toolbar{
+    --background: #2f3132 !important;
+    ion-title{
+      color: white;
+      font-family: Algerian;
+      font-size: 18px;
+      color: #efefef;
+    }
+  }
+}

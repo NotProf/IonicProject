@@ -13,7 +13,7 @@ import {NgForm} from '@angular/forms';
   providers: [DatePipe]
 })
 export class CommentsComponent implements OnInit {
-  comments: Comments[];
+  comments: Comments[] = [];
   currentFilm: Films = new Films();
   authUser = localStorage.getItem('_token') != null;
   constructor(private filmService: FilmServiceService,

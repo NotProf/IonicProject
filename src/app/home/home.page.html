@@ -1,43 +1,41 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-menu-button style="color: seagreen"></ion-menu-button>
+            <ion-menu-button style="color: white"></ion-menu-button>
         </ion-buttons>
         <ion-buttons slot="primary">
-            <ion-button (click)="present($event)"> <ion-icon name="funnel"></ion-icon></ion-button>
+                <ion-select interface="popover" (ionChange)="genre($event) ">
+                    <ion-select-option value="Adventure" selected ><h3 class="white">ALL</h3></ion-select-option>
+                    <ion-select-option value="Adventure">Adventure</ion-select-option>
+                    <ion-select-option value="Biography">Biography</ion-select-option>
+                    <ion-select-option value="Cartoons">Cartoons</ion-select-option>
+                    <ion-select-option value="Comedy">Comedy</ion-select-option>
+                    <ion-select-option value="Fantasy">Fantasy</ion-select-option>
+                    <ion-select-option value="Historical">Historical</ion-select-option>
+                    <ion-select-option value="Horror">Horror</ion-select-option>
+                    <ion-select-option value="Serials">Serials</ion-select-option>
+                </ion-select>
+
         </ion-buttons>
 
-        <ion-title style="font-family: fantasy; font-size: 24px; color: seagreen;">
+        <ion-title>
             Main page
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <!--<div class="sorted" style="margin-top: 50px">-->
-        <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Fantasy')"><span style="font-size: 11px">Fantasy</span></ion-button>-->
-        <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Horror')"><span style="font-size: 11px">Horror</span></ion-button>-->
-        <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Drama')"><span style="font-size: 11px">Drama</span></ion-button>-->
-        <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Historical')"><span style="font-size: 11px">Historical</span></ion-button>-->
-        <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Comedy')"><span style="font-size: 11px">Comedy</span></ion-button>-->
-    <!--</div>-->
-    <!--<div class="sorted">-->
-        <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Adventure')"><span style="font-size: 11px">Adventure</span></ion-button>-->
-        <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Biography')"><span style="font-size: 11px">Biography</span></ion-button>-->
-        <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Sport')"><span style="font-size: 11px">Sport</span></ion-button>-->
-        <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Cartoons')"><span style="font-size: 11px">Cartoons</span></ion-button>-->
-        <!--<ion-button style="box-shadow: 0 0 10px rgba(0,0,0,0.8); border-radius: 20px" color="dark" (click)="SearchBy('Serials')"><span style="font-size: 11px">Serials</span></ion-button>-->
-    <!--</div>-->
+
     <ion-searchbar showCancelButton="never" class="ionSearch" color="medium" (ionChange)="sendSearchForm($event)" animated>
     </ion-searchbar>
-    <ion-card *ngFor="let f of filmsAfterSlice"[routerLink]="'/movie/' + f.id"  routerDirection="forward">
+    <ion-card *ngFor="let f of filmsAfterSlice">
         <div  class="container" style="border-bottom: 1px solid #404040; ">
             <div style="padding: 0; margin: 20px 10px 0 10px; text-align: center">
-                <a class="film__label" [routerLink]="'/movie/' + f.id" ><h3 style="margin-top: 15px">{{f.name}}</h3>
+                <a class="film__label" [routerLink]="'/movie/' + f.id"  routerDirection="forward" ><h3 style="margin-top: 15px">{{f.name}}</h3>
                 </a>
-                <a class="films__rec2" [routerLink]="'/movie/' + f.id" ><img class="f__img"  alt="" [src]="f.picture"></a>
+                <a class="films__rec2" [routerLink]="'/movie/' + f.id"  routerDirection="forward" ><img class="f__img"  alt="" [src]="f.picture"></a>
             </div>
-            <div class=" film__cont"><p class="about">
+            <div class=" film__cont"><p class="about" [routerLink]="'/movie/' + f.id"  routerDirection="forward">
               <span style="display: block; float: right; margin-right: 10px">
               <ion-icon name="star" color="warning" size="large"></ion-icon>
               <span style="color: goldenrod; font-size: 20px">{{f.score | number:'1.1-2'}}</span>
@@ -52,10 +50,10 @@
                 <span style="color: rgba(107,107,107,0.87)">{{f.aboutFilm}}</span><br>
             </p></div>
             <div style="text-align: center; margin: 20px 0 10px;">
-                <ion-button [routerLink]="'/movie/' + f.id" style="width: 100px; color: white"
+                <ion-button [routerLink]="'/movie/' + f.id"  routerDirection="forward" style="width: 100px; color: white"
                             color="primary">Watch
                 </ion-button>
-                <ion-button (click)="ShowTrailer(f.id)" style="width: 100px; color: white" color="primary">
+                <ion-button (click)="present(f.id)" style="width: 100px; color: white" color="primary">
                     Trailer
                 </ion-button>
                 <ion-button (click)="addUserFilm(f.id)" style="width: 100px; color: white" color="success">ADD

@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button style="color: seagreen"></ion-menu-button>
+      <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <ion-title style="font-family: fantasy; font-size: 24px; color: seagreen;">People</ion-title>
+    <ion-title>People</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
     <ion-row>
       <ion-col class="mycol-lg" *ngFor="let user of partUser" [routerLink]="'/userpage/' + user.id" size="3">
         <img class="user-img" [src]="user.avatar">
-        <span style="color: seagreen">{{user.username}}</span>
+        <span class="username">{{user.username}}</span>
       </ion-col>
     </ion-row>
   </ion-grid>

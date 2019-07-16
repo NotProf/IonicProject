@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import {GenreComponent} from '../genre/genre.component';
+import {TrailerPage} from '../trailer/trailer.page';
 
 @NgModule({
   imports: [
@@ -16,11 +16,10 @@ import {GenreComponent} from '../genre/genre.component';
       {
         path: '',
         component: HomePage,
-        children: [{path: '', component: GenreComponent}]
       }
     ])
   ],
-  declarations: [HomePage, GenreComponent],
-  entryComponents: [GenreComponent]
+  declarations: [HomePage, TrailerPage],
+  entryComponents: [TrailerPage]
 })
 export class HomePageModule {}

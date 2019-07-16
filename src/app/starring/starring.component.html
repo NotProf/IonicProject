@@ -1,24 +1,11 @@
 <div class="bottom starring">
 
-  <!--<div class="actor">-->
-    <!--<div class="actor1" *ngFor="let n of [0,1]">-->
-      <!--<img src="{{actors[n].image}}" alt=""  class="actorImg" >-->
-      <!--<div>{{actors[n].name}}</div>-->
-    <!--</div>-->
-  <!--</div>-->
-
-  <!--<div class="actor" >-->
-    <!--<div class="actor1" *ngFor="let n of [2,3]">-->
-      <!--<img src="{{actors[n].image}}" alt=""  class="actorImg" >-->
-      <!--<div>{{actors[n].name}}</div>-->
-    <!--</div>-->
-  <!--</div>-->
 
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let a of actors" size="6" style="text-align: center">
         <img src="{{a.image}}" alt=""  class="actorImg">
-        <h5 style="margin: 0">{{a.name}}</h5>
+        <h5 style="margin: 0; color: white">{{a.name}}</h5>
       </ion-col>
     </ion-row>
   </ion-grid>
