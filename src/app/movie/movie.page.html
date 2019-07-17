@@ -33,7 +33,7 @@
     </div>
   </ng-template>
 
-  <ion-segment color="secondary">
+  <ion-segment color="secondary" scrollable="true">
     <ion-segment-button  [routerLink]="'/movie/' + currentID + '/about-movie'">
       <ion-label>About Movie</ion-label>
       <ion-icon name="information-circle-outline"></ion-icon>
@@ -57,7 +57,7 @@
   </ion-segment>
   <router-outlet></router-outlet>
   <div class="main-list">
-    <div class="list-item" *ngFor="let item of top">
+    <div class="list-item" *ngFor="let item of top" [routerLink]="'/movie/' + item.id">
       <img class="list-img" [src]="item.picture" width="40%" height="100%">
       <div class="block">{{item.name}}
       <div><ion-icon name="star" color="warning" size="large"></ion-icon>
