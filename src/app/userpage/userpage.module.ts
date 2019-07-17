@@ -9,6 +9,7 @@ import { UserpagePage } from './userpage.page';
 import {UserfilmsComponent} from '../userfilms/userfilms.component';
 import {FollowersComponent} from '../followers/followers.component';
 import {FollowingComponent} from '../following/following.component';
+import {NotThisUserDirective} from '../../directives/not-this-user.directive';
 
 
 const routes: Routes = [
@@ -29,6 +30,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [UserpagePage, UserfilmsComponent, FollowersComponent, FollowingComponent],
+  declarations: [UserpagePage, UserfilmsComponent, FollowersComponent, FollowingComponent, NotThisUserDirective],
 })
 export class UserpagePageModule {}
