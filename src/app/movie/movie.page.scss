@@ -31,3 +31,14 @@ ion-content{
   --background:  rgba(37, 40, 37, 1);
 }
 
+ion-segment>ion-segment-button {
+    outline: none;
+}
+
+ion-label{
+  color: white;
+}
+
+ion-icon{
+  color: white;
+}

@@ -17,7 +17,7 @@ export class RegComponent implements OnInit {
 
     submitted = false;
     authForm: FormGroup;
-    url = 'http://ec2-18-216-21-75.us-east-2.compute.amazonaws.com:8080/reg';
+    url = 'http://ec2-3-16-154-66.us-east-2.compute.amazonaws.com:8080/reg';
     // url = 'http://localhost:8080/reg';
     mes = '';
     userexists = false;

@@ -12,10 +12,11 @@ import {Camera} from '@ionic-native/camera/ngx';
 import {File} from '@ionic-native/file/ngx';
 import {HomePage} from './home/home.page';
 import { NotThisUserDirective } from '../directives/not-this-user.directive';
+import { PhotoDirective } from '../directives/photo.directive';
 
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, PhotoDirective],
     entryComponents: [],
     imports: [
         BrowserModule,

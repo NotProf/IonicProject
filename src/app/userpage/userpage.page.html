@@ -23,7 +23,7 @@
             <ng-template #off>
                 <h2 style="color: #2d9833; font-weight: 600">{{currentUser.status}}</h2>
             </ng-template>
-                <label class="avatar_input"> <input class="avatar" ngModel name="avatar" id="fileInput"  type="file" (change)="handleFileInput($event)">
+                <label *ngIf="!subButton" class="avatar_input"> <input class="avatar" ngModel name="avatar" id="fileInput"  type="file" (change)="handleFileInput($event)">
                     <ion-icon name="camera"></ion-icon>
                 </label>
                 <!--<label class="avatar_input"><input class="avatar" type="submit">Save changes</label>-->
