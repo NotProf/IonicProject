@@ -30,7 +30,7 @@ const routes: Routes = [
         IonicModule,
         RouterModule.forChild(routes)
     ],
-    declarations: [UserpagePage, UserfilmsComponent, FollowersComponent, FollowingComponent, NotThisUserDirective],
+    declarations: [UserpagePage, UserfilmsComponent, FollowersComponent, FollowingComponent, NotThisUserDirective]
 })
 export class UserpagePageModule {
 }

@@ -47,14 +47,14 @@ export class AppComponent implements OnInit {
     ngOnInit() {
             this.userService.getCurrentUser().subscribe((res) => {
                 this.currentUser = res;
+                this.platform.ready().then(() => {
+                    this.statusBar.styleDefault();
+                    this.splashScreen.hide();
+                    if (localStorage.getItem('_token') != null) {
+                        this.router.navigateByUrl('/home');
+                    }
+                });
             }, () => this.mes = 'Please login');
-            this.platform.ready().then(() => {
-                this.statusBar.styleDefault();
-                this.splashScreen.hide();
-                if (localStorage.getItem('_token') != null) {
-                    this.router.navigateByUrl('/home');
-                }
-            });
     }
 }
 

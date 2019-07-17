@@ -16,13 +16,14 @@
 
         <div class="userImg">
             <ion-label><h1 style="margin-top: 4%; font-family: fantasy; color: #2f3132">{{currentUser.username}}</h1></ion-label>
-            <div style="margin-top: 4%"><img class="ava" id="ava" [src]="currentUser.avatar"></div>
             <ion-label><h2 style="color: red; font-weight: 600"
                            *ngIf="currentUser.status.toLowerCase() == 'offline'; else off">{{currentUser.status}}</h2>
             </ion-label>
             <ng-template #off>
                 <h2 style="color: #2d9833; font-weight: 600">{{currentUser.status}}</h2>
             </ng-template>
+            <div style="margin-top: 4%"><img class="ava" id="ava" [src]="currentUser.avatar"></div>
+
                 <label *ngIf="!subButton" class="avatar_input"> <input class="avatar" ngModel name="avatar" id="fileInput"  type="file" (change)="handleFileInput($event)">
                     <ion-icon name="camera"></ion-icon>
                 </label>
@@ -30,11 +31,12 @@
                 <!--<label class="avatar_input"><ion-button color="light" type="submit">save</ion-button></label>-->
         </div>
 
-
-    <ion-button color="success" (click)="subscribes()" *ngIf="subButton && !exist">Subscribe</ion-button>
-    <ion-button color="danger" (click)="unSubscribes()" *ngIf="subButton && exist">Unsubscribe</ion-button>
+    <div class="subs">
+    <ion-button  color="success" (click)="subscribes()" *ngIf="subButton && !exist">Subscribe</ion-button>
+    <ion-button  color="danger" (click)="unSubscribes()" *ngIf="subButton && exist">Unsubscribe</ion-button>
+    </div>
     <div class="aboutUser">
-        <h3 class="aboutH">Email: <span style="font-size: 16px; opacity: 0.8; color: #8d0f03">{{currentUser.email}}</span></h3>
+        <h3 class="aboutH">Email: <span style="font-size: 16px; opacity: 0.8; color: red">{{currentUser.email}}</span></h3>
         <h3 class="aboutH">Films in library: <a
                 [routerLink]="'/userpage/' + currentUser.id + '/userfilms'">{{currentUser.usersFilms.length}}</a></h3>
         <h3 class="aboutH">Followers: <a
