@@ -3,7 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 import {FilmServiceService} from '../../services/film-service.service';
 import {Films} from '../../models/Films';
 import {HomePage} from '../home/home.page';
-
+import {User} from '../../models/User';
+import {UserServiceService} from '../../services/user-service.service';
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.page.html',
@@ -15,9 +16,12 @@ export class MoviePage implements OnInit {
   top: Films[];
   title = 'Movie';
   SelectMovie = true;
+  currentUser: User;
+  userfilmItar = false;
   constructor(private activateRoute: ActivatedRoute,
               private filmService: FilmServiceService,
-              private home: HomePage) { }
+              private home: HomePage,
+              private userService: UserServiceService) { }
 
   ngOnInit() {
     this.activateRoute.params.subscribe((param) => {
@@ -30,6 +34,17 @@ export class MoviePage implements OnInit {
     this.filmService.getTopTen().subscribe((res) => {
       this.top = res;
     });
+    this.checkUserFilm();
+  }
+  checkUserFilm() {
+    this.userService.getCurrentUser().subscribe((res) => {
+      this.currentUser = res;
+      for (let i = 0; i < this.currentUser.usersFilms.length; i++) {
+        if (this.currentUser.usersFilms[i].id === this.currentID) {
+          this.userfilmItar = true;
+        }
+      }
+    });
   }
 
   change(check: boolean) {
@@ -38,5 +53,8 @@ export class MoviePage implements OnInit {
 
   add() {
     this.home.addUserFilm(this.currentID);
+    setTimeout(() => {
+      this.checkUserFilm();
+    }, 200);
   }
 }
