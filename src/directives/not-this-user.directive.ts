@@ -1,4 +1,4 @@
-import {Directive, ElementRef, OnInit} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, OnInit} from '@angular/core';
 import {UserpagePage} from '../app/userpage/userpage.page';
 
 @Directive({
@@ -10,11 +10,9 @@ export class NotThisUserDirective implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log(this.userP.thisUser.id);
-        console.log(this.userP.currentUser.id);
-        if (this.userP.thisUser.id === this.userP.currentUser.id) {
-            this.elRef.nativeElement.style.display = 'none';
-        }
+            if (this.userP.thisUser.id !== this.userP.currentUser.id) {
+                this.elRef.nativeElement.style.display = 'none';
+            }
     }
 
 }

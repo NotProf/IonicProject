@@ -29,7 +29,7 @@ export class UserpagePage implements OnInit {
 
     currentUser = new User();
     currentID = 0;
-    image = 'assets/ava.jpg';
+    image = 'assets/noava.png';
     showUnshow = false;
     subButton = true;
     exist: boolean;

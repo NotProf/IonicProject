@@ -1,27 +1,27 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-menu-button style="color: black"></ion-menu-button>
+            <ion-menu-button style="color: white"></ion-menu-button>
         </ion-buttons>
         <ion-title>My Page</ion-title>
         <ion-buttons slot="end">
             <ion-button (click)="logout()" color="light">
-                <ion-icon style="color: black" name="log-out"></ion-icon>
+                <ion-icon style="color: white" name="log-out"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-item no-padding>
+
         <div class="userImg">
-            <ion-label><h1 style="margin-top: 4%; font-family: fantasy; color: whitesmoke">{{currentUser.username}}</h1></ion-label>
+            <ion-label><h1 style="margin-top: 4%; font-family: fantasy; color: #2f3132">{{currentUser.username}}</h1></ion-label>
             <div style="margin-top: 4%"><img class="ava" id="ava" [src]="currentUser.avatar"></div>
-            <ion-label><h6 style="color: red;"
-                           *ngIf="currentUser.status.toLowerCase() == 'offline'; else off">{{currentUser.status}}</h6>
+            <ion-label><h2 style="color: red; font-weight: 600"
+                           *ngIf="currentUser.status.toLowerCase() == 'offline'; else off">{{currentUser.status}}</h2>
             </ion-label>
             <ng-template #off>
-                <h5 style="color: #1fce04;">{{currentUser.status}}</h5>
+                <h2 style="color: #2d9833; font-weight: 600">{{currentUser.status}}</h2>
             </ng-template>
                 <label class="avatar_input"> <input class="avatar" ngModel name="avatar" id="fileInput"  type="file" (change)="handleFileInput($event)">
                     <ion-icon name="camera"></ion-icon>
@@ -29,12 +29,12 @@
                 <!--<label class="avatar_input"><input class="avatar" type="submit">Save changes</label>-->
                 <!--<label class="avatar_input"><ion-button color="light" type="submit">save</ion-button></label>-->
         </div>
-    </ion-item>
+
 
     <ion-button color="success" (click)="subscribes()" *ngIf="subButton && !exist">Subscribe</ion-button>
     <ion-button color="danger" (click)="unSubscribes()" *ngIf="subButton && exist">Unsubscribe</ion-button>
     <div class="aboutUser">
-        <h3 class="aboutH">Email: <span style="font-size: 16px; opacity: 0.7">{{currentUser.email}}</span></h3>
+        <h3 class="aboutH">Email: <span style="font-size: 16px; opacity: 0.8; color: #8d0f03">{{currentUser.email}}</span></h3>
         <h3 class="aboutH">Films in library: <a
                 [routerLink]="'/userpage/' + currentUser.id + '/userfilms'">{{currentUser.usersFilms.length}}</a></h3>
         <h3 class="aboutH">Followers: <a

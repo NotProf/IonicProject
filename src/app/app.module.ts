@@ -15,7 +15,7 @@ import { NotThisUserDirective } from '../directives/not-this-user.directive';
 
 
 @NgModule({
-    declarations: [AppComponent, NotThisUserDirective],
+    declarations: [AppComponent],
     entryComponents: [],
     imports: [
         BrowserModule,
