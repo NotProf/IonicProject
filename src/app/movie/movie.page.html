@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-segment color="success">
+  <ion-segment color="light">
     <ion-segment-button checked  (ionSelect)="change(true)">
       <ion-label>Movie</ion-label>
     </ion-segment-button>
@@ -30,7 +30,7 @@
     </div>
   </ng-template>
 
-  <ion-segment color="success">
+  <ion-segment color="primary">
     <ion-segment-button  [routerLink]="'/movie/' + currentID + '/about-movie'">
       <ion-label>About Movie</ion-label>
       <ion-icon name="information-circle-outline"></ion-icon>

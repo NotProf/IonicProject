@@ -6,7 +6,7 @@
 .film__label {
   color: whitesmoke;
   text-decoration: none;
-  font-family: cursive;
+  font-family: Algerian;
 }
 
 
@@ -74,7 +74,7 @@ ion-content{
   --background: #111111;
 }
 ion-card{
-  --background: rgba(37, 40, 37, 1);;
+  --background: rgba(37, 40, 37, 1);
   --color: white;
   margin-bottom: 0;
 }
@@ -83,7 +83,27 @@ ion-card{
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.moreFilms{
+.moreFilms {
   margin: 0 auto;
   color: white;
 }
+ion-header{
+  ion-toolbar{
+    --background: #2f3132 !important;
+    ion-title{
+      font-family: Algerian;
+      font-size: 24px;
+      color: #efefef;
+    }
+    ion-buttons{
+      ion-select{
+        color: white;
+        font-family: Algerian;
+        ion-select-option{
+          color: rebeccapurple;
+        }
+      }
+    }
+  }
+}
+

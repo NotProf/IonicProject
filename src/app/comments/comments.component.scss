@@ -8,13 +8,13 @@
   /*display: inline;*/
 }
 .username{
-  color: #3a392a;
+  color: #b9bfbb;
   font-size: 120%;
   margin-left: 10px;
   cursor: pointer;
 }
 .comment {
-  color: #b3b7ac;
+  color: #9ca095;
   clear: both;
 }
 .allcomment {
@@ -40,6 +40,7 @@
 }
 .cl-grey {
   background: #4b4b4b;
+  color: #e0e0e0;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   border: 1px solid #1fce04;
 }
@@ -55,22 +56,23 @@
   width: 80%;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  //border-bottom-left-radius: 20px;
-  //border-bottom-right-radius: 20px;
   border: 1px solid rgba(143, 146, 143, 0.91);
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 .dateOfComment{
   margin-right: 5px;
   float: right;
-  color: #434345;
+  color: #8a8a8c;
 }
 .off{
   text-align: center;
-  color: #3b3a36;
+  color: #dfded1;
   cursor: pointer;
   font-family: "Maiandra GD";
   outline: none;
+}
+.green{
+  color: #7ea0ff;
 }
 
 .bottom{

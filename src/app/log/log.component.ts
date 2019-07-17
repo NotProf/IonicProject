@@ -36,7 +36,7 @@ export class LogComponent implements OnInit {
                 this.submitted = true;
                 location.href = '/home';
             }, () => {
-                this.mes = 'Неправильно вказані дані або не активований акаунт';
+                this.mes = 'Invalid username or password';
             });
         }
 }

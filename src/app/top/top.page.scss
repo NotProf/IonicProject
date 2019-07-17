@@ -1,2 +1,23 @@
+ion-header{
+  ion-toolbar{
+    --background: #2f3132 !important;
+    ion-title{
 
+      font-family: Algerian;
+      font-size: 18px;
+      color: #efefef;
+    }
+  }
+}
+ion-content{
+  --background:  rgba(37, 40, 37, 1);
+  ion-list{
+    ion-item{
+      --background:  rgba(37, 40, 37, 1);
+      font-family: Algerian;
+      font-size: 18px;
+      color: #efefef;
+    }
+  }
+}
 

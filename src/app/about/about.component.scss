@@ -1,6 +1,7 @@
 .about{
   display: flex;
   justify-content: center;
+  color: white;
 }
 .filmImg{
   width: 35%;
@@ -19,4 +20,10 @@
 .bottom{
   border-bottom: 2px solid darkgrey;
   margin-bottom: 40px;
+}
+ion-list{
+  ion-item{
+    --background: rgba(37, 40, 37, 1);
+    color: white;
+  }
 }

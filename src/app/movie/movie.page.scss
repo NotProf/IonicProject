@@ -11,8 +11,23 @@
   display: inline-block;
   font-size: 150%;
   margin-left: 20px;
+  font-family: Algerian;
+  color: #efefef;
 }
 .list-img{
   display: inline-block;
+}
+ion-header{
+  ion-toolbar{
+    --background: #2f3132 !important;
+    ion-title{
+      font-family: Algerian;
+      font-size: 18px;
+      color: #efefef;
+    }
+  }
+}
+ion-content{
+  --background:  rgba(37, 40, 37, 1);
 }
 

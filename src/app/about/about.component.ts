@@ -18,4 +18,9 @@ export class AboutComponent implements OnInit {
    });
   }
 
+    rate(n: number) {
+        this.filmService.rating(n, this.currentMovie.id).subscribe((res) => {
+          this.currentMovie.score = res;
+        });
+    }
 }
