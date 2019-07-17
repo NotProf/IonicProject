@@ -115,10 +115,11 @@ export class HomePage implements OnInit {
         const genre = event.target.value;
         if (genre.toLowerCase() === 'all') {
             this.ngOnInit();
+        } else {
+            this.filmsS.findByGenre(genre).subscribe((res) => {
+                this.films = res;
+                this.filmsAfterSlice = this.films.slice(0, this.maxSize);
+            });
         }
-        this.filmsS.findByGenre(genre).subscribe((res) => {
-            this.films = res;
-            this.filmsAfterSlice = this.films.slice(0, this.maxSize);
-        });
     }
 }
