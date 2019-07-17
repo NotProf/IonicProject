@@ -1,14 +1,13 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/User';
 import {FileChooser} from '@ionic-native/file-chooser/ngx';
 import {Platform} from '@ionic/angular';
 import {File} from '@ionic-native/file/ngx';
-import {Camera, CameraOptions} from '@ionic-native/camera/ngx';
+import {Camera} from '@ionic-native/camera/ngx';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserServiceService} from '../../services/user-service.service';
 import {AppComponent} from '../app.component';
-import {Observable} from 'rxjs';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
     selector: 'app-userpage',
@@ -89,36 +88,23 @@ export class UserpagePage implements OnInit {
         this.ngOnInit();
     }
 
-    selectFile() {
-        if (this.platform.is('cordova')) {
-            const options: CameraOptions = {
-                quality: 100,
-                destinationType: this.camera.DestinationType.DATA_URL,
-                encodingType: this.camera.EncodingType.JPEG,
-                mediaType: this.camera.MediaType.PICTURE,
-                sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
-            };
-            this.camera.getPicture(options).then((imageData) => {
-                this.image = 'data:image/jpeg;base64,' + imageData;
-            });
-        } else {
-            alert('This is BROWSER! Function not working');
-        }
-    }
+    // selectFile() {
+    //     if (this.platform.is('cordova')) {
+    //         const options: CameraOptions = {
+    //             quality: 100,
+    //             destinationType: this.camera.DestinationType.DATA_URL,
+    //             encodingType: this.camera.EncodingType.JPEG,
+    //             mediaType: this.camera.MediaType.PICTURE,
+    //             sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+    //         };
+    //         this.camera.getPicture(options).then((imageData) => {
+    //             this.image = 'data:image/jpeg;base64,' + imageData;
+    //         });
+    //     } else {
+    //         alert('This is BROWSER! Function not working');
+    //     }
+    // }
 
-    save() {
-        const fd: FormData = new FormData();
-        fd.append('avatar', this.image);
-        this.userService.setAvatar(fd).subscribe();
-    }
-
-    //     const postData = new FormData();
-    //     postData.append('avatar', this.image);
-    //     const url = 'https://mycinema1.s3.us-east-2.amazonaws.com/';
-    //     let data: Observable<any> = this.http.post(url, postData).subscribe((res) => {
-    //         alert(res);
-    //     });
-    //
 
     handleFileInput(event) {
         this.fileToUpload = event.target.files[0];
@@ -129,13 +115,6 @@ export class UserpagePage implements OnInit {
             // @ts-ignore
             this.currentUser.avatar = fileReader.result;
         };
-        const fd: FormData = new FormData();
-        // @ts-ignore
-        fd.append('avatar', this.fileToUpload);
-        this.userService.setAvatar(fd).subscribe();
-    }
-
-    sendFormWithAvatar() {
         const fd: FormData = new FormData();
         // @ts-ignore
         fd.append('avatar', this.fileToUpload);
