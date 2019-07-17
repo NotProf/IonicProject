@@ -9,7 +9,7 @@
 <!--aa-->
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of top">
+    <ion-item *ngFor="let item of top" [routerLink]="'/movie/' + item.id">
       <ion-thumbnail slot="start">
         <ion-img [src]="item.picture"></ion-img>
       </ion-thumbnail>
