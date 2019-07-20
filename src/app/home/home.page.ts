@@ -5,6 +5,7 @@ import {ModalController, NavController, PopoverController} from '@ionic/angular'
 import {User} from '../../models/User';
 import {UserServiceService} from '../../services/user-service.service';
 import {TrailerPage} from '../trailer/trailer.page';
+import {AppComponent} from '../app.component';
 
 @Component({
     selector: 'app-home',
@@ -30,17 +31,11 @@ export class HomePage implements OnInit {
     userfilmItar = false;
 
     ngOnInit() {
-        if (localStorage.getItem('_token') != null) {
-            this.userService.setStatus('Online').subscribe();
-        } else {
-            this.userService.setStatus('Offline').subscribe();
-        }
         this.userService.getCurrentUser().subscribe((res) => {
             this.currentUser = res;
             this.currentID = res.id;
             console.log(res);
         });
-
         this.filmsS.getFilms().subscribe((res) => {
             this.films = res.reverse();
             this.filmsAfterSlice = this.films.slice(0, this.maxSize);
@@ -65,6 +60,7 @@ export class HomePage implements OnInit {
             this.moreButton = false;
         }
     }
+
     showMore() {
         this.maxSize += 2;
         this.filmsAfterSlice = this.films.slice(0, this.maxSize);
@@ -77,6 +73,7 @@ export class HomePage implements OnInit {
             this.filmsAfterSlice = this.films.slice(0, this.maxSize);
         });
     }
+
     sendSearchForm(event) {
         const form = event.target.value;
         if (form !== '') {

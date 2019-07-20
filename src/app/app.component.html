@@ -3,7 +3,7 @@
     <ion-menu type="overlay" >
       <ion-header >
         <ion-toolbar>
-          <ion-title>Menu</ion-title>
+          <ion-title>Menu | <span style="color: #0cd1e8">{{currentUser.username}}</span></ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
@@ -25,7 +25,7 @@
             </ion-item>
           </ion-menu-toggle>
           <ion-menu-toggle auto-hide="false">
-            <ion-item [routerDirection]="'root'" [routerLink]= "'/userpage/' + currentUser.id">
+            <ion-item [routerDirection]="'root'" [href]= "'/userpage/' + currentUser.id + '/userfilms'">
               <ion-icon slot="start" name="contact"></ion-icon>
               <ion-label>
                 My Page

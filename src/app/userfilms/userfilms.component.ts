@@ -27,6 +27,8 @@ export class UserfilmsComponent implements OnInit {
         this.userS.getUserFilms(this.id).subscribe((res) => {
             this.uFilms = res;
         });
+
+        this.userP.ngOnInit();
     }
 
     deleteUserFilm(id: number) {

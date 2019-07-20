@@ -36,15 +36,13 @@ export class UserpagePage implements OnInit {
     thisUser = new User();
     fileToUpload: File = null;
 
-    // form: FormGroup;
-
-
     ngOnInit() {
-        // this.form = this.formBuilder.group({
-        //     avatar: ['']
-        // });
 
-
+        if (localStorage.getItem('_token') != null) {
+            this.userService.setStatus('Online').subscribe();
+        } else {
+            this.userService.setStatus('Offline').subscribe();
+        }
         this.userService.getCurrentUser().subscribe((res) => {
             this.thisUser = res;
         });
@@ -71,8 +69,9 @@ export class UserpagePage implements OnInit {
 
 
     logout() {
-        localStorage.removeItem('_token');
-        localStorage.removeItem('_currentUser');
+        // localStorage.removeItem('_token');
+        // localStorage.removeItem('_currentUser');
+        localStorage.clear();
         this.currentUser.status = 'offline';
         this.userService.setStatus('Offline').subscribe();
         this.router.navigateByUrl('/logreg/log');
