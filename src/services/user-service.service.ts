@@ -13,8 +13,8 @@ export class UserServiceService {
 
     mes = '';
 
-    url = 'http://ec2-3-16-154-66.us-east-2.compute.amazonaws.com:8080/';
-    // url = 'http://localhost:8080/';
+    // url = 'http://ec2-3-16-154-66.us-east-2.compute.amazonaws.com:8080/';
+    url = 'http://localhost:8080/';
 
     constructor(private http: HttpClient, private router: Router) {
     }
