@@ -28,7 +28,7 @@ export class UserServiceService {
             console.log('err');
         }
         return throwError(err);
-    }
+ }
 
     static handleNullUserError(err) {
         if (err instanceof TypeError) {
