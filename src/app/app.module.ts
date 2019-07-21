@@ -13,7 +13,6 @@ import {File} from '@ionic-native/file/ngx';
 import {HomePage} from './home/home.page';
 import { NotThisUserDirective } from '../directives/not-this-user.directive';
 import { PhotoDirective } from '../directives/photo.directive';
-import {CacheModule} from 'ionic-cache';
 
 
 @NgModule({
