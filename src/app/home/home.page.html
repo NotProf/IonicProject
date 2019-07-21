@@ -4,8 +4,8 @@
             <ion-menu-button style="color: white;"></ion-menu-button>
         </ion-buttons>
         <ion-buttons slot="primary">
-                <ion-select interface="popover" (ionChange)="genre($event) ">
-                    <ion-select-option value="all" selected ><h3 class="white">ALL</h3></ion-select-option>
+                <ion-select interface="popover" (ionChange)="genre($event)" id="select">
+                    <ion-select-option id="all" value="all" selected ><h3 class="white">ALL</h3></ion-select-option>
                     <ion-select-option value="Adventure">Adventure</ion-select-option>
                     <ion-select-option value="Biography">Biography</ion-select-option>
                     <ion-select-option value="Cartoons">Cartoons</ion-select-option>
@@ -28,6 +28,11 @@
 
     <ion-searchbar showCancelButton="never" class="ionSearch" color="medium" (ionChange)="sendSearchForm($event)" animated>
     </ion-searchbar>
+    <ion-refresher  slot="fixed" (ionRefresh) = "refresh($event)">
+        <ion-refresher-content refreshing-spinner="null">
+            <ion-spinner   color="secondary"></ion-spinner>
+        </ion-refresher-content>
+    </ion-refresher>
     <ion-card *ngFor="let f of filmsAfterSlice">
         <div  class="container" style="border-bottom: 1px solid #404040; ">
             <div style="padding: 0; margin: 20px 10px 0 10px; text-align: center">

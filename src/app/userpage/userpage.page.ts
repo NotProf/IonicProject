@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from '../../models/User';
 import {FileChooser} from '@ionic-native/file-chooser/ngx';
-import {Platform} from '@ionic/angular';
+import {NavController, Platform} from '@ionic/angular';
 import {File} from '@ionic-native/file/ngx';
 import {Camera} from '@ionic-native/camera/ngx';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -24,7 +24,8 @@ export class UserpagePage implements OnInit {
                 public userService: UserServiceService,
                 public activatedRoute: ActivatedRoute,
                 public http: HttpClient,
-                public app: AppComponent) {
+                public app: AppComponent,
+                public nav: NavController) {
     }
 
     currentUser = new User();
@@ -37,7 +38,6 @@ export class UserpagePage implements OnInit {
     fileToUpload: File = null;
 
     ngOnInit() {
-
         if (localStorage.getItem('_token') != null) {
             this.userService.setStatus('Online').subscribe();
         } else {
@@ -67,7 +67,6 @@ export class UserpagePage implements OnInit {
         });
     }
 
-
     logout() {
         // localStorage.removeItem('_token');
         // localStorage.removeItem('_currentUser');
@@ -75,6 +74,7 @@ export class UserpagePage implements OnInit {
         this.currentUser.status = 'offline';
         this.userService.setStatus('Offline').subscribe();
         this.router.navigateByUrl('/logreg/log');
+        this.userService.logout();
     }
 
 

@@ -71,6 +71,18 @@
 }
 ion-content{
   --background: #111111;
+  ion-refresher{
+    background:  #111111 !important;
+    ion-refresher-content{
+      background:  #111111 !important;
+      ion-spinner{
+        display: block;
+        margin: auto;
+        position: relative;
+        top: 15px;
+      }
+    }
+  }
 }
 ion-card{
   --background: rgba(37, 40, 37, 1);

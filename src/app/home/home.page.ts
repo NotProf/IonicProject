@@ -29,7 +29,7 @@ export class HomePage implements OnInit {
     currentUser = new User();
     currentID;
     userfilmItar = false;
-
+    selectedGenre = '';
     ngOnInit() {
         this.userService.getCurrentUser().subscribe((res) => {
             this.currentUser = res;
@@ -90,33 +90,43 @@ export class HomePage implements OnInit {
     }
 
     addUserFilm(idFilm: number) {
-        this.userfilmItar = false;
-        for (let i = 0; i < this.currentUser.usersFilms.length; i++) {
-            if (this.currentUser.usersFilms[i].id === idFilm) {
-                this.userfilmItar = true;
-            }
-        }
-        if (this.userfilmItar === false) {
-            this.userService.addUserFilm(idFilm).subscribe((res) => {
-                this.currentUser.usersFilms = res;
-                alert('Added');
-            });
-        } else {
+        this.userService.getCurrentUser().subscribe((res) => {
+            this.currentUser = res;
             this.userfilmItar = false;
-            alert('Exists');
-        }
+            for (let i = 0; i < this.currentUser.usersFilms.length; i++) {
+                if (this.currentUser.usersFilms[i].id === idFilm) {
+                    this.userfilmItar = true;
+                }
+            }
+            if (this.userfilmItar === false) {
+                this.userService.addUserFilm(idFilm).subscribe((res) => {
+                    this.currentUser.usersFilms = res;
+                    alert('Added');
+                });
+            } else {
+                this.userfilmItar = false;
+                alert('Exists');
+            }
+        });
     }
 
 
     genre(event) {
-        const genre = event.target.value;
-        if (genre.toLowerCase() === 'all') {
+        this.selectedGenre = event.target.value;
+        if (this.selectedGenre.toLowerCase() === 'all') {
             this.ngOnInit();
         } else {
-            this.filmsS.findByGenre(genre).subscribe((res) => {
+            this.filmsS.findByGenre(this.selectedGenre).subscribe((res) => {
                 this.films = res;
                 this.filmsAfterSlice = this.films.slice(0, this.maxSize);
             });
         }
+    }
+
+    refresh(event) {
+        setTimeout(() => {
+            this.ngOnInit();
+            event.target.complete();
+       }, 2000);
     }
 }

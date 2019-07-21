@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
 import {UserServiceService} from '../../services/user-service.service';
-import {NavController} from '@ionic/angular';
+import {LoadingController, NavController} from '@ionic/angular';
 import {User} from '../../models/User';
 import {AppComponent} from '../app.component';
 
@@ -17,13 +17,15 @@ export class LogComponent implements OnInit {
                 public router: Router,
                 public userS: UserServiceService,
                 public navCtrl: NavController,
-                public app: AppComponent) {
+                public app: AppComponent,
+                public loading: LoadingController) {
     }
 
     currentUser = new User();
     submitted = false;
     authForm: FormGroup;
     mes = '';
+    private load;
 
     ngOnInit() {
         this.authForm = this.formBuilder.group({
@@ -41,7 +43,16 @@ export class LogComponent implements OnInit {
             const currentUser = value.headers.get('CurrentUser');
             localStorage.setItem('_currentUser', currentUser);
             localStorage.setItem('_token', token);
-            location.href = '/userpage/' +  this.app.currentID + '/userfilms';
+            this.loading.create({
+                message: 'Authenticating...'
+            }).then((overlay) => {
+                this.load = overlay;
+                this.load.present();
+            });
+            setTimeout(() => {
+                this.loading.dismiss();
+                window.location.href = '/userpage/' + this.app.currentUser + 'userfilms';
+                }, 2000);
         }, () => {
             this.mes = 'Invalid username or password';
         });

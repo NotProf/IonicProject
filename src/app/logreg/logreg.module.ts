@@ -8,6 +8,8 @@ import {IonicModule} from '@ionic/angular';
 import {LogregPage} from './logreg.page';
 import {LogComponent} from '../log/log.component';
 import {RegComponent} from '../reg/reg.component';
+import {HttpClientModule} from "@angular/common/http";
+import {CacheModule} from 'ionic-cache';
 
 const routes: Routes = [
     {
@@ -25,7 +27,8 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         ReactiveFormsModule,
-        RouterModule.forChild(routes)
+        RouterModule.forChild(routes),
+        CacheModule.forRoot()
     ],
     declarations: [LogregPage, LogComponent, RegComponent]
 })
