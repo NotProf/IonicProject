@@ -111,5 +111,8 @@ export class UserServiceService {
     close(id: number) {
         return this.http.post(this.url + 'close', id);
     }
+    logout() {
+        return this.http.get(this.url + 'logout', {headers: this.headersOption});
+    }
 
 }

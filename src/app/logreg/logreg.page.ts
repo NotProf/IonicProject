@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NavController, Platform} from '@ionic/angular';
 
 @Component({
   selector: 'app-logreg',
@@ -7,11 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogregPage implements OnInit {
 
-  constructor() { }
-
+  constructor(public navCtrl: NavController) {
+  }
 
 
   ngOnInit() {
   }
-
 }
