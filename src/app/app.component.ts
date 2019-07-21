@@ -45,7 +45,6 @@ export class AppComponent implements OnInit {
 
 
     ngOnInit() {
-        // history.pushState({}, 'Login', 'http://localhost:4200/logreg/log');
             this.userService.getCurrentUser().subscribe((res) => {
                 this.currentUser = res;
 

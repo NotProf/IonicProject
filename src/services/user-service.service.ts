@@ -11,14 +11,13 @@ import {Router} from '@angular/router';
 })
 export class UserServiceService {
 
-    mes = '';
 
-    // url = 'http://ec2-3-16-154-66.us-east-2.compute.amazonaws.com:8080/';
-    url = 'http://localhost:8080/';
+
+    url = 'http://ec2-3-16-154-66.us-east-2.compute.amazonaws.com:8080/';
+    // url = 'http://localhost:8080/';
 
     constructor(private http: HttpClient, private router: Router) {
     }
-
     headersOption = new HttpHeaders()
         .set('Authorization', localStorage.getItem('_token'))
         .set('CurrentUser', localStorage.getItem('_currentUser'));
@@ -31,8 +30,9 @@ export class UserServiceService {
  }
 
     static handleNullUserError(err) {
+        let mes = '';
         if (err instanceof TypeError) {
-            console.log('err');
+            mes = 'wefwe';
         }
         return throwError(err);
     }
