@@ -6,6 +6,7 @@ import {User} from '../../models/User';
 import {UserServiceService} from '../../services/user-service.service';
 import {TrailerPage} from '../trailer/trailer.page';
 import {AppComponent} from '../app.component';
+import {CacheService} from "ionic-cache";
 
 @Component({
     selector: 'app-home',

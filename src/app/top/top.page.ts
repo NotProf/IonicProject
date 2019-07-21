@@ -14,7 +14,21 @@ export class TopPage implements OnInit {
   ngOnInit() {
     this.filmService.getTopTen().subscribe((res) => {
          this.top = res;
+         this.top.sort(this.compareByR);
     });
   }
 
+  compareByR(first, second) {
+    if (first.score < second.score) {
+      return 1;
+    }
+    if (first.score > second.score) {
+      return -1;
+    }
+    return 0;
+  }
+
+  swap() {
+    this.top.reverse();
+  }
 }

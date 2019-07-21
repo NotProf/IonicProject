@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import {TrailerPage} from '../trailer/trailer.page';
+import {CacheModule} from 'ionic-cache';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+      CacheModule.forRoot(),
     RouterModule.forChild([
       {
         path: '',
