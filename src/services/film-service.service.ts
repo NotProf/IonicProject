@@ -9,8 +9,8 @@ import {Comments} from '../models/Comments';
 })
 export class FilmServiceService {
 
-     url = 'http://ec2-3-16-154-66.us-east-2.compute.amazonaws.com:8080/';
-    //url = 'http://localhost:8080/';
+    //url = 'http://ec2-3-16-154-66.us-east-2.compute.amazonaws.com:8080/';
+     url = 'http://localhost:8080/';
     headersOption = new HttpHeaders()
         .set('Authorization', localStorage.getItem('_token'))
         .set('CurrentUser', localStorage.getItem('_currentUser'));
